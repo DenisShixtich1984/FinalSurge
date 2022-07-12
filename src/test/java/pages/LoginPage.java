@@ -10,19 +10,15 @@ public class LoginPage {
     public SelenideElement buttonLogin = $(By.className("btn"));
     public SelenideElement errorMassage = $x("//strong[text()='Invalid login credentials. Please try again.']");
 
-
-    public void login () {
+    public void login() {
         inputEmail.sendKeys("dehok@mail.ru");
         inputPassword.sendKeys("bLC*XDnyyRaCG$3");
         buttonLogin.click();
-
     }
 
-    public void falseLogin () {
+    public void falseLogin() {
         inputEmail.sendKeys("dehok@mail.ru");
         inputPassword.sendKeys("bLC*XDnyyRaCG$4");
         buttonLogin.click();
-
     }
-
 }
