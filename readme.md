@@ -1,2 +1,10 @@
 #Final Surge
-automated website project with training notes
+
+##Automated website project with training notes
+
+###Project checklist
+
+1. Checking the email and password input field *(FS-1)*
+2. Entering the wrong passport *(FS-2)*
+3. Adding a new note about workout *(FS-3)*
+
