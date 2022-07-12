@@ -1,4 +1,4 @@
-package pages;
+package com.finalsurge.pages;
 
 import com.codeborne.selenide.SelenideElement;
 

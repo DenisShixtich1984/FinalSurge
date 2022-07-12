@@ -11,3 +11,6 @@ log/
 target/
 
 .allure/
+
+.build/
+

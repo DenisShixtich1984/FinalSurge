@@ -1,4 +1,4 @@
-package tests;
+package com.finalsurge.tests;
 import org.testng.annotations.Test;
 import io.qameta.allure.*;
 import static com.codeborne.selenide.Condition.visible;
@@ -17,5 +17,4 @@ public class LoginTest extends BaseTest{
         loginPage.falseLogin();
         loginPage.errorMassage.shouldBe(visible);
     }
-
 }

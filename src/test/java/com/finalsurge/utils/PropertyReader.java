@@ -1,4 +1,4 @@
-package utils;
+package com.finalsurge.utils;
 import java.io.IOException;
 import java.util.Properties;
 

@@ -1,6 +1,6 @@
-package browser;
+package com.finalsurge.browser;
 import com.codeborne.selenide.Configuration;
-import utils.PropertyReader;
+import com.finalsurge.utils.PropertyReader;
 
 import static com.codeborne.selenide.Browsers.*;
 

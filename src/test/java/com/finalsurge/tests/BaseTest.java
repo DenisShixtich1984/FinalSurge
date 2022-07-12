@@ -1,15 +1,17 @@
-package tests;
-import browser.SelenideConfiguration;
+package com.finalsurge.tests;
+import com.finalsurge.browser.SelenideConfiguration;
 import com.codeborne.selenide.Selenide;
+import com.finalsurge.steps.CalendarSteps;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.CalendarPage;
-import pages.DashboardPage;
-import pages.LoginPage;
-import steps.CalendarSteps;
+import org.testng.annotations.Listeners;
+import com.finalsurge.pages.CalendarPage;
+import com.finalsurge.pages.DashboardPage;
+import com.finalsurge.pages.LoginPage;
+import com.finalsurge.pages.MyListener;
 
 import static com.codeborne.selenide.Selenide.open;
-
+@Listeners (MyListener.class)
 public class BaseTest {
     LoginPage loginPage;
     DashboardPage dashboardPage;
@@ -27,7 +29,7 @@ public class BaseTest {
         calendarPage = new CalendarPage();
         calendarSteps = new CalendarSteps();
     }
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public void closeBrowser () {
         Selenide.closeWebDriver();
     }
