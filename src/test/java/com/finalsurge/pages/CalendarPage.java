@@ -1,7 +1,8 @@
 package com.finalsurge.pages;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import static com.codeborne.selenide.Condition.visible;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class CalendarPage {
@@ -18,18 +19,17 @@ public class CalendarPage {
     public SelenideElement distance = $(By.id("Distance"));
     public SelenideElement distType = $(By.id("DistType"));
     public SelenideElement km = $x("//*[@id='DistType']/option[2]");
-    public SelenideElement duration= $(By.id("Duration"));
+    public SelenideElement duration = $(By.id("Duration"));
     public SelenideElement saveButton = $(By.id("saveButton"));
     public SelenideElement checkAddRun = $x(" //div[text()='Run: long run']");
-    public SelenideElement errorMassage = $x("//*[@id=\"workout-add\"]/div[1]");
+    public SelenideElement errorMassage = $x("//*[@id='workout-add']/div[1]");
     public SelenideElement noteWorkout = $x("//div[text()='Run: long run']");
     public SelenideElement buttonDelete = $x("/html/body/div[1]/div[3]/form/div/div[4]/div/div[2]/div[2]/table/tbody/tr[2]/td[6]/div/div[2]/div/div/ul/li[8]/a");
     public SelenideElement buttonOK = $x("//a[text()='OK']");
 
 
-    public CalendarPage buttonCalendarClickAndCheck() {
+    public CalendarPage buttonCalendarClick() {
         buttonCalendar.click();
-        titleCalendar.shouldBe(visible);
         return new CalendarPage();
     }
 
@@ -49,7 +49,6 @@ public class CalendarPage {
         duration.sendKeys("00:01:10");
         saveButton.scrollIntoView(false);
         saveButton.click();
-        checkAddRun.shouldBe(visible);
         return new CalendarPage();
     }
 
@@ -57,15 +56,13 @@ public class CalendarPage {
         buttonQuickAdd.click();
         saveButton.scrollIntoView(false);
         saveButton.click();
-        errorMassage.shouldBe(visible);
         return new CalendarPage();
     }
 
-    public  CalendarPage deleteNewNote () {
+    public CalendarPage deleteNewNote() {
         noteWorkout.click();
         buttonDelete.click();
         buttonOK.click();
-
         return new CalendarPage();
     }
 }

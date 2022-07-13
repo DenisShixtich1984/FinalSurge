@@ -25,10 +25,14 @@ public class CalendarSteps {
         dashboardPage
                 .titleDashboard.shouldBe(visible);
         calendarPage
-                .buttonCalendarClickAndCheck()
-                .addWorkout();
+                .buttonCalendarClick()
+                .titleCalendar.shouldBe(visible);
+        calendarPage
+                .addWorkout()
+                .checkAddRun.shouldBe(visible);
         return this;
     }
+
     @Step()
     public CalendarSteps createNewWorkOutWithError() {
         loginPage
@@ -36,10 +40,14 @@ public class CalendarSteps {
         dashboardPage
                 .titleDashboard.shouldBe(visible);
         calendarPage
-                .buttonCalendarClickAndCheck()
-                .errorAddWorkout();
+                .buttonCalendarClick()
+                .titleCalendar.shouldBe(visible);
+        calendarPage
+                .errorAddWorkout()
+                .errorMassage.shouldBe(visible);
         return this;
     }
+
     @Step()
     public CalendarSteps deleteNote() {
         loginPage
@@ -47,9 +55,10 @@ public class CalendarSteps {
         dashboardPage
                 .titleDashboard.shouldBe(visible);
         calendarPage
-                .buttonCalendarClickAndCheck()
+                .buttonCalendarClick()
+                .titleCalendar.shouldBe(visible);
+        calendarPage
                 .deleteNewNote();
         return this;
     }
-
 }

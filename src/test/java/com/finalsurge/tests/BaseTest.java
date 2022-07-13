@@ -1,4 +1,5 @@
 package com.finalsurge.tests;
+
 import com.finalsurge.browser.SelenideConfiguration;
 import com.codeborne.selenide.Selenide;
 import com.finalsurge.steps.CalendarSteps;
@@ -11,14 +12,15 @@ import com.finalsurge.pages.LoginPage;
 import com.finalsurge.pages.MyListener;
 
 import static com.codeborne.selenide.Selenide.open;
-@Listeners (MyListener.class)
+
+@Listeners(MyListener.class)
 public class BaseTest {
     LoginPage loginPage;
     DashboardPage dashboardPage;
     CalendarPage calendarPage;
     CalendarSteps calendarSteps;
 
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
 
         SelenideConfiguration.configureBrowser("");
@@ -29,8 +31,9 @@ public class BaseTest {
         calendarPage = new CalendarPage();
         calendarSteps = new CalendarSteps();
     }
-    @AfterMethod (alwaysRun = true)
-    public void closeBrowser () {
+
+    @AfterMethod(alwaysRun = true)
+    public void closeBrowser() {
         Selenide.closeWebDriver();
     }
 }
