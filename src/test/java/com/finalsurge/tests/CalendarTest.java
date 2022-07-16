@@ -5,6 +5,11 @@ import org.testng.annotations.Test;
 
 public class CalendarTest extends BaseTest {
 
+    /**
+     *there are three tests in this class. test ("FS-3") and ("FS-5") dependent tests with positive scenarios
+     *  for adding and removing workout . ("FS-5") is a negative test for not filling in the required field
+     */
+
     @Test
     @TmsLink("FS-3")
     public void createWorkOut() {
@@ -17,7 +22,7 @@ public class CalendarTest extends BaseTest {
         calendarSteps.createNewWorkOutWithError();
     }
 
-    @Test(dependsOnMethods = "createWorkOut")
+    @Test (dependsOnMethods = "createWorkOut")
     @TmsLink("FS-5")
     public void deleteNewWorkout() {
         calendarSteps.deleteNote();

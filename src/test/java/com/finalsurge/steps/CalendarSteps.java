@@ -58,7 +58,8 @@ public class CalendarSteps {
                 .buttonCalendarClick()
                 .titleCalendar.shouldBe(visible);
         calendarPage
-                .deleteNewNote();
+                .deleteNewNote()
+                .noteWorkout.shouldNotBe(visible);
         return this;
     }
 }
