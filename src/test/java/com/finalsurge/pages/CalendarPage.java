@@ -1,11 +1,13 @@
 package com.finalsurge.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.finalsurge.utils.PropertyReader;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class CalendarPage {
+    PropertyReader reader = new PropertyReader();
     public SelenideElement buttonCalendar = $(By.className("icsw16-day-calendar"));
     public SelenideElement titleCalendar = $x("//a[text()='Training Calendar']");
     public SelenideElement buttonQuickAdd = $(By.id("QuickAddToggle"));
@@ -37,16 +39,16 @@ public class CalendarPage {
         buttonQuickAdd.click();
         calendarButton.click();
         dateOfWorkOut.clear();
-        dateOfWorkOut.sendKeys("07/08/2022");
+        dateOfWorkOut.sendKeys(reader.getProperty("DateForAdd"));
         workoutTime.click();
         timeOfWorkOut.click();
-        activityType.sendKeys("Run");
-        workoutName.sendKeys("long run");
-        workoutDescription.sendKeys("preparation for marathon running at a distance of more than 10 km");
-        distance.sendKeys("10");
+        activityType.sendKeys(reader.getProperty("ActivityType"));
+        workoutName.sendKeys(reader.getProperty("WorkoutName"));
+        workoutDescription.sendKeys(reader.getProperty("WorkoutDescription"));
+        distance.sendKeys(reader.getProperty("Distance"));
         distType.click();
         km.click();
-        duration.sendKeys("00:01:10");
+        duration.sendKeys(reader.getProperty("Duration"));
         saveButton.scrollIntoView(false);
         saveButton.click();
         return new CalendarPage();
