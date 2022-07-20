@@ -2,27 +2,25 @@ package com.finalsurge.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.finalsurge.utils.PropertyReader;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
-public class CalculatorsPage {
-    PropertyReader reader = new PropertyReader();
+public class CalculatorsPage extends BasePage {
     public SelenideElement buttonCalculatorsWorkout = $(By.className("icsw16-stop-watch"));
     public SelenideElement iFrame = $(By.id("IntensityCalciFrame"));
-    public SelenideElement buttonIntensity = $x("//button[text()='Intensity']");
+    public SelenideElement buttonIntensity = $(byText("Intensity"));
     public SelenideElement radioButton10km = $(By.id("TENK"));
     public SelenideElement radioButtonHalfMar = $(By.id("HALFMAR"));
     public SelenideElement fieldHour = $(By.id("TimeHH"));
     public SelenideElement fieldMinute = $(By.id("TimeMM"));
     public SelenideElement fieldSecond = $(By.id("TimeSS"));
     public SelenideElement saveButtonSettings = $(By.id("saveButtonSettings"));
-    public SelenideElement messageAfterEnterDate = $x("//*[@id='intensity-calc']/div/div[3]/div[1]/h4");
-    public SelenideElement messageNumberAfterEnterDate = $x("//*[@id='intensity-calc']/div/div[3]/div[2]/table/tbody/tr[2]/td[4]");
-    public SelenideElement errorMassageFrame = $x("//*[@id='CalcBox']/div[1]/div/div[2]/strong");
+    public SelenideElement messageAfterEnterDate = $(byText("Your Workout Paces"));
+    public SelenideElement messageNumberAfterEnterDate = $(byText("8:13 /km"));
+    public SelenideElement errorMassageFrame = $(By.className("alert"));
 
 
     public CalculatorsPage createWorkoutCalculator() {

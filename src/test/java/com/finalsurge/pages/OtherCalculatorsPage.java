@@ -2,19 +2,16 @@ package com.finalsurge.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.finalsurge.utils.PropertyReader;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
-
-public class OtherCalculatorsPage {
-    PropertyReader reader = new PropertyReader();
+public class OtherCalculatorsPage extends BasePage{
     public SelenideElement buttonOtherCalculators = $(By.className("icsw16-calculator"));
     public SelenideElement CalculatorFrame = $(By.id("OtherCalciFrame"));
-    public SelenideElement textInFrame = $x("//h4[text()='Daily Caloric Needs Calculator']");
+    public SelenideElement textInFrame = $(byText("Daily Caloric Needs Calculator"));
     public SelenideElement fieldWeight = $(By.id("Weight"));
     public SelenideElement radioButtonKg = $(By.id("optionsRadios4"));
     public SelenideElement fieldHeight = $(By.id("HeightInchCent"));
@@ -24,8 +21,20 @@ public class OtherCalculatorsPage {
     public SelenideElement fieldRunDist = $(By.id("RunDist"));
     public SelenideElement radioButtonKm = $(By.id("optionsRadios8"));
     public SelenideElement buttonCalculateCalories = $(By.id("saveButtonSettings"));
-    public SelenideElement numberOfCalories = $x("//*[@id='calorie-calc']/div/div[2]/div[2]/table/tbody/tr/td[2]");
-    public SelenideElement generalErrorMessage = $x("//*[@class='alert alert-error']");
+    public SelenideElement tableAfterResult = $(By.className("table"));
+    public SelenideElement generalErrorMessage = $(By.className("alert"));
+    public SelenideElement buttonPaceCalculator = $(byText("Pace Calculator"));
+    public SelenideElement textPaceCalculator = $(byText("Pace Calculator"));
+    public SelenideElement fieldDistance = $(By.id("RunDist"));
+    public SelenideElement selectMeasureElement = $(By.id("DistType"));
+    public SelenideElement selectKm = $x("//*[@id='DistType']/option[2]");
+    public SelenideElement hours = $(By.id("TimeHH"));
+    public SelenideElement minutes = $(By.id("TimeMM"));
+    public SelenideElement seconds = $(By.id("TimeSS"));
+    public SelenideElement saveButtonSettings = $(By.id("saveButtonSettings"));
+    public SelenideElement result = $(By.className("table"));
+    public SelenideElement errorMessage = $(By.className("alert"));
+
 
     public OtherCalculatorsPage createCaloricCalculate() {
         buttonOtherCalculators.click();
@@ -40,7 +49,6 @@ public class OtherCalculatorsPage {
         fieldRunDist.sendKeys(reader.getProperty("Dist"));
         radioButtonKm.click();
         buttonCalculateCalories.click();
-
         return this;
     }
 
@@ -57,4 +65,31 @@ public class OtherCalculatorsPage {
         return this;
     }
 
+    public OtherCalculatorsPage createPeaceCalculate() {
+        buttonOtherCalculators.click();
+        Selenide.switchTo().frame(CalculatorFrame);
+        buttonPaceCalculator.click();
+        textPaceCalculator.shouldBe(visible);
+        fieldDistance.sendKeys(reader.getProperty("fieldDistance"));
+        selectMeasureElement.click();
+        selectKm.click();
+        hours.sendKeys(reader.getProperty("hours"));
+        minutes.sendKeys(reader.getProperty("minutes"));
+        seconds.sendKeys(reader.getProperty("seconds"));
+        saveButtonSettings.click();
+        return this;
+    }
+
+    public OtherCalculatorsPage createPeaceCalculateWithError() {
+        buttonOtherCalculators.click();
+        Selenide.switchTo().frame(CalculatorFrame);
+        buttonPaceCalculator.click();
+        textPaceCalculator.shouldBe(visible);
+        fieldDistance.sendKeys(reader.getProperty("fieldDistanceWithError"));
+        selectMeasureElement.click();
+        selectKm.click();
+        minutes.sendKeys(reader.getProperty("minutes"));
+        saveButtonSettings.click();
+        return this;
+    }
 }

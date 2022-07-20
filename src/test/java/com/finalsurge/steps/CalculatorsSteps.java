@@ -6,8 +6,7 @@ import com.finalsurge.pages.LoginPage;
 import com.finalsurge.utils.PropertyReader;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 
 public class CalculatorsSteps {
     LoginPage loginPage;
@@ -15,16 +14,15 @@ public class CalculatorsSteps {
     CalculatorsPage calculatorsPage;
     PropertyReader reader;
 
-    public CalculatorsSteps () {
+    public CalculatorsSteps() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
         calculatorsPage = new CalculatorsPage();
-        reader= new PropertyReader();
-
+        reader = new PropertyReader();
     }
 
     @Step()
-    public CalculatorsSteps calculateDistance () {
+    public CalculatorsSteps calculateDistance() {
         loginPage
                 .login();
         dashboardPage
@@ -36,16 +34,16 @@ public class CalculatorsSteps {
                 .messageNumberAfterEnterDate.shouldHave(exactText(reader.getProperty("expectedMessage")));
         return this;
     }
+
     @Step()
-    public CalculatorsSteps calculateDistanceWithError () {
+    public CalculatorsSteps calculateDistanceWithError() {
         loginPage
                 .login();
         dashboardPage
                 .titleDashboard.shouldBe(visible);
         calculatorsPage
                 .createCalculatorWithMistake()
-                .errorMassageFrame.shouldBe(visible);
+                .errorMassageFrame.shouldHave(textCaseSensitive(reader.getProperty("ErrorMessageAboutSecond")));
         return this;
     }
-
 }

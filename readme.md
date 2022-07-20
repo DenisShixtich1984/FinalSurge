@@ -14,5 +14,7 @@
 8. Checking the calorie counting tab by weight height and distance *(FS-8)* [link](https://app.qase.io/project/FS?view=1&suite=0&case=8&previewMode=modal)
 9. Checking the calorie counting tab by weight height and distance with error *(FS-9)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=modal&case=9)
 10. Edit user profile settings *(FS-10)* [link](https://app.qase.io/project/FS?view=1&suite=0&case=10)
-11. Edit user profile settings with error *(FS-10)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=11)
+11. Edit user profile settings with error *(FS-11)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=11)
+12. Calculating the pace of running according to the distance and time of training *(FS-12)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=12)
+13. calculating the pace of running according to the distance and time of training with error *(FS-13)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=13)
 

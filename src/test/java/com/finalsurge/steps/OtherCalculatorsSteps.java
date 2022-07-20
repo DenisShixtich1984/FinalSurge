@@ -1,12 +1,10 @@
 package com.finalsurge.steps;
 
-import com.codeborne.selenide.Condition;
 import com.finalsurge.pages.LoginPage;
 import com.finalsurge.pages.OtherCalculatorsPage;
 import com.finalsurge.utils.PropertyReader;
 import io.qameta.allure.Step;
-
-import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.textCaseSensitive;
 
 public class OtherCalculatorsSteps {
     LoginPage loginPage;
@@ -18,22 +16,44 @@ public class OtherCalculatorsSteps {
         otherCalculatorsPage = new OtherCalculatorsPage();
         reader = new PropertyReader();
     }
+
     @Step
-    public OtherCalculatorsSteps calculateCalories () {
+    public OtherCalculatorsSteps calculateCalories() {
         loginPage
                 .login();
         otherCalculatorsPage
                 .createCaloricCalculate()
-                .numberOfCalories.shouldHave(exactText(reader.getProperty("numberCalFromCalculate")));
+                .tableAfterResult.shouldHave(textCaseSensitive(reader.getProperty("numberCalFromCalculate")));
         return this;
     }
+
     @Step
-    public OtherCalculatorsSteps calculateCalorieWithError () {
+    public OtherCalculatorsSteps calculateCalorieWithError() {
         loginPage
                 .login();
         otherCalculatorsPage
                 .createCaloricCalculateWithError()
-                .generalErrorMessage.shouldHave(Condition.textCaseSensitive(reader.getProperty("expectedWeightError")));
+                .generalErrorMessage.shouldHave(textCaseSensitive(reader.getProperty("expectedWeightError")));
+        return this;
+    }
+
+    @Step
+    public OtherCalculatorsSteps createStepsPeaceCalculate() {
+        loginPage
+                .login();
+        otherCalculatorsPage
+                .createPeaceCalculate()
+                .result.shouldHave(textCaseSensitive(reader.getProperty("speed")));
+        return this;
+    }
+
+    @Step
+    public OtherCalculatorsSteps createStepsPeaceCalculateWithError() {
+        loginPage
+                .login();
+        otherCalculatorsPage
+                .createPeaceCalculateWithError()
+                .errorMessage.shouldHave(textCaseSensitive(reader.getProperty("messageErrorDistance")));
         return this;
     }
 }

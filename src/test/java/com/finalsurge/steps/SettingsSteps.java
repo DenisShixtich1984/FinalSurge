@@ -1,4 +1,5 @@
 package com.finalsurge.steps;
+
 import com.codeborne.selenide.Condition;
 import com.finalsurge.pages.LoginPage;
 import com.finalsurge.pages.SettingsPage;
@@ -35,5 +36,4 @@ public class SettingsSteps {
                 .errorMessageWrongSymbol.shouldHave(Condition.textCaseSensitive(reader.getProperty("errorWrongSymbols")));
         return this;
     }
-
 }
