@@ -1,27 +1,29 @@
 package com.finalsurge.pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+@Log4j2
 public class MyListener implements ITestListener {
     public void onTestStart(ITestResult result) {
-        System.out.println("==== STARTING TEST %s ===");
+        log.info(" -  STARTING TEST  - ");
         result.setStatus(ITestResult.STARTED);
     }
 
     public void onTestSuccess(ITestResult result) {
-        System.out.println("======= FINISHED TEST %s Duration: %ss ======");
+        log.info("=  FINISHED TEST  =");
         result.setStatus(ITestResult.SUCCESS);
     }
 
     public void onTestFailure(ITestResult result) {
-        System.out.println("=================== FAILED TEST %s Duration: %ss =======");
+        log.error("*     FAILED TEST    *");
+        System.out.println();
         result.setStatus(ITestResult.FAILURE);
     }
 
     public void onTestSkipped(ITestResult result) {
-        System.out.println("========= SKIPPING TEST %s ==============");
+        log.info("========= SKIPPING TEST ==============");
         result.setStatus(ITestResult.SKIP);
     }
-
 }

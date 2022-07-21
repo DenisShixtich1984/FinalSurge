@@ -1,12 +1,14 @@
 package com.finalsurge.pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class CalendarPage extends BasePage{
+public class CalendarPage extends BasePage {
     public SelenideElement buttonCalendar = $(By.className("icsw16-day-calendar"));
     public SelenideElement titleCalendar = $(byText("Training Calendar"));
     public SelenideElement buttonQuickAdd = $(By.id("QuickAddToggle"));
@@ -27,6 +29,17 @@ public class CalendarPage extends BasePage{
     public SelenideElement noteWorkout = $(byText("Run: long run"));
     public SelenideElement buttonDelete = $(byXpath("(//a[text()='Delete'])[2]"));
     public SelenideElement buttonOK = $(byText("OK"));
+    public SelenideElement workoutBike = $(By.id("wid-33a910da-e03b-47b7-abbd-b2394941b6e2"));
+    public SelenideElement fieldForDrop = $x("//*[@id=\"CalendarContent\"]/div/div[2]/div[2]/table/tbody/tr[3]/td[5]");
+
+
+    public CalendarPage dragAndDropBike() {
+
+        actions().dragAndDrop(workoutBike,fieldForDrop).build().perform();
+
+        return this;
+    }
+
 
     public CalendarPage buttonCalendarClick() {
         buttonCalendar.click();

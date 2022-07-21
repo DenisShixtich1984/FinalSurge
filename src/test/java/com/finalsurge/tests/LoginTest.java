@@ -13,12 +13,11 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class LoginTest extends BaseTest {
 
-    @Test//(retryAnalyzer = Retry.class)
+    @Test(retryAnalyzer = Retry.class)
     @TmsLink("FS-1")
     public void loginStart() {
         loginPage.login();
         dashboardPage.titleDashboard.shouldBe(visible);
-
     }
 
     @Test(retryAnalyzer = Retry.class)
@@ -26,6 +25,13 @@ public class LoginTest extends BaseTest {
     public void loginStartWithFalsePassport() {
         loginPage.falseLogin();
         loginPage.errorMassage.shouldBe(visible);
+    }
+
+    @Test
+    public void test() {
+        loginPage.login();
+        calendarPage.buttonCalendar.click();
+        calendarPage.dragAndDropBike();
 
     }
 }

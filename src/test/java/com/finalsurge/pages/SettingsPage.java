@@ -1,8 +1,10 @@
 package com.finalsurge.pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -51,16 +53,24 @@ public class SettingsPage extends BasePage {
         return this;
     }
 
-//        Selenide.switchTo().frame(iFrameUpload);
+    public SettingsPage editPhoto() {
+        buttonSettings.click();
+        buttonEditProfile.click();
+        buttonChangeImage.click();
+        Selenide.switchTo().frame(iFrameUpload);
+        buttonChangeAvatar.click();
+
+//
 //        buttonChangeAvatar.click();
 
-    // sendKeys(System.getProperty("user.dir")+"/src/test/resources/avatar.jpg");
-    //      buttonNextStep.click();
+        // sendKeys(System.getProperty("user.dir")+"/src/test/resources/avatar.jpg");
+        //      buttonNextStep.click();
 //        buttonNextStep.click();
 //        saveButtonProfile.click();
 
 
 //        genderRadioButton.click();
 //        fieldBDay.sendKeys(reader.getProperty("BDay"));
-
+        return this;
+    }
 }

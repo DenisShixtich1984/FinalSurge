@@ -21,4 +21,9 @@ public class SettingTest extends BaseTest {
         settingsSteps.editDataInfoWithError();
     }
 
+    @Test
+    public void test () {
+        loginPage.login();
+        settingsPage.editPhoto();
+    }
 }

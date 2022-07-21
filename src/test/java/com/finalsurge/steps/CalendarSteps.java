@@ -6,7 +6,9 @@ import io.qameta.allure.Step;
 import com.finalsurge.pages.CalendarPage;
 import com.finalsurge.pages.DashboardPage;
 import com.finalsurge.pages.LoginPage;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class CalendarSteps {
     LoginPage loginPage;
     DashboardPage dashboardPage;

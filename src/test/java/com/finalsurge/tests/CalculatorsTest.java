@@ -19,4 +19,5 @@ public class CalculatorsTest extends BaseTest {
     public void calculateWorkoutIntensityWithError() {
         calculatorsSteps.calculateDistanceWithError();
     }
+
 }
