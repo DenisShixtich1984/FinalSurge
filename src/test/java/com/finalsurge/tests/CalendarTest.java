@@ -25,7 +25,10 @@ public class CalendarTest extends BaseTest {
     @Test(dependsOnMethods = "createWorkOut", retryAnalyzer = Retry.class)
     @TmsLink("FS-5")
     public void deleteNewWorkout() {
-        calendarSteps.deleteNote();
-    }
+        calendarSteps.deleteNote();}
 
+    @Test(retryAnalyzer = Retry.class)
+    @TmsLink("FS-14")
+    public void dragAndDropWithBike() {
+        calendarSteps.dragAndDropWithBike();}
 }

@@ -18,7 +18,6 @@ public class MyListener implements ITestListener {
 
     public void onTestFailure(ITestResult result) {
         log.error("*     FAILED TEST    *");
-        System.out.println();
         result.setStatus(ITestResult.FAILURE);
     }
 

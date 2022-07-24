@@ -2,19 +2,18 @@ package com.finalsurge.steps;
 
 import com.finalsurge.pages.LoginPage;
 import com.finalsurge.pages.OtherCalculatorsPage;
+import com.finalsurge.utils.IPageConstants;
 import com.finalsurge.utils.PropertyReader;
 import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.textCaseSensitive;
 
-public class OtherCalculatorsSteps {
+public class OtherCalculatorsSteps implements IPageConstants {
     LoginPage loginPage;
     OtherCalculatorsPage otherCalculatorsPage;
-    PropertyReader reader;
 
     public OtherCalculatorsSteps() {
         loginPage = new LoginPage();
         otherCalculatorsPage = new OtherCalculatorsPage();
-        reader = new PropertyReader();
     }
 
     @Step
@@ -23,7 +22,7 @@ public class OtherCalculatorsSteps {
                 .login();
         otherCalculatorsPage
                 .createCaloricCalculate()
-                .tableAfterResult.shouldHave(textCaseSensitive(reader.getProperty("numberCalFromCalculate")));
+                .tableAfterResult.shouldHave(textCaseSensitive(NUMBER_CAL_FROM_CALCULATE));
         return this;
     }
 
@@ -33,7 +32,7 @@ public class OtherCalculatorsSteps {
                 .login();
         otherCalculatorsPage
                 .createCaloricCalculateWithError()
-                .generalErrorMessage.shouldHave(textCaseSensitive(reader.getProperty("expectedWeightError")));
+                .generalErrorMessage.shouldHave(textCaseSensitive(EXPECTED_WEIGHT_ERROR));
         return this;
     }
 
@@ -43,7 +42,7 @@ public class OtherCalculatorsSteps {
                 .login();
         otherCalculatorsPage
                 .createPeaceCalculate()
-                .result.shouldHave(textCaseSensitive(reader.getProperty("speed")));
+                .result.shouldHave(textCaseSensitive(SPEED_CALC));
         return this;
     }
 
@@ -53,7 +52,7 @@ public class OtherCalculatorsSteps {
                 .login();
         otherCalculatorsPage
                 .createPeaceCalculateWithError()
-                .errorMessage.shouldHave(textCaseSensitive(reader.getProperty("messageErrorDistance")));
+                .errorMessage.shouldHave(textCaseSensitive(MESSAGE_ERROR_DIS));
         return this;
     }
 }

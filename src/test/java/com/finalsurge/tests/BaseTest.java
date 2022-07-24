@@ -3,10 +3,7 @@ package com.finalsurge.tests;
 import com.finalsurge.browser.SelenideConfiguration;
 import com.codeborne.selenide.Selenide;
 import com.finalsurge.pages.*;
-import com.finalsurge.steps.CalculatorsSteps;
-import com.finalsurge.steps.CalendarSteps;
-import com.finalsurge.steps.OtherCalculatorsSteps;
-import com.finalsurge.steps.SettingsSteps;
+import com.finalsurge.steps.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -25,6 +22,8 @@ public class BaseTest {
     OtherCalculatorsSteps otherCalculatorsSteps;
     SettingsPage settingsPage;
     SettingsSteps settingsSteps;
+    AddWorkoutPage addWorkoutPage;
+    AddWorkoutSteps addWorkoutSteps;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -42,6 +41,8 @@ public class BaseTest {
         otherCalculatorsSteps = new OtherCalculatorsSteps();
         settingsPage = new SettingsPage();
         settingsSteps = new SettingsSteps();
+        addWorkoutPage = new AddWorkoutPage();
+        addWorkoutSteps = new AddWorkoutSteps();
     }
 
     @AfterMethod(alwaysRun = true)

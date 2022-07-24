@@ -1,12 +1,13 @@
 package com.finalsurge.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.finalsurge.utils.IPageConstants;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage extends BasePage{
+public class LoginPage implements IPageConstants {
     public SelenideElement inputEmail = $(By.id("login_name"));
     public SelenideElement inputPassword = $(By.id("login_password"));
     public SelenideElement buttonLogin = $(By.className("btn"));
@@ -14,14 +15,14 @@ public class LoginPage extends BasePage{
 
 
     public void login() {
-        inputEmail.sendKeys(reader.getProperty("MyMail"));
-        inputPassword.sendKeys(reader.getProperty("MyPassword"));
+        inputEmail.sendKeys(MY_MAIL);
+        inputPassword.sendKeys(MY_PASSWORD);
         buttonLogin.click();
     }
 
     public void falseLogin() {
-        inputEmail.sendKeys(reader.getProperty("MyMail"));
-        inputPassword.sendKeys(reader.getProperty("invalidPassword"));
+        inputEmail.sendKeys(MY_MAIL);
+        inputPassword.sendKeys(INVALID_PASSWORD);
         buttonLogin.click();
     }
 }

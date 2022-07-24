@@ -2,13 +2,14 @@ package com.finalsurge.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.finalsurge.utils.IPageConstants;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class OtherCalculatorsPage extends BasePage{
+public class OtherCalculatorsPage implements IPageConstants {
     public SelenideElement buttonOtherCalculators = $(By.className("icsw16-calculator"));
     public SelenideElement CalculatorFrame = $(By.id("OtherCalciFrame"));
     public SelenideElement textInFrame = $(byText("Daily Caloric Needs Calculator"));
@@ -35,18 +36,17 @@ public class OtherCalculatorsPage extends BasePage{
     public SelenideElement result = $(By.className("table"));
     public SelenideElement errorMessage = $(By.className("alert"));
 
-
     public OtherCalculatorsPage createCaloricCalculate() {
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
-        textInFrame.shouldHave(exactText(reader.getProperty("textMassageCalculate")));
-        fieldWeight.sendKeys(reader.getProperty("Weight"));
+        textInFrame.shouldHave(exactText(TEXT_MESSAGE_CALCULATE));
+        fieldWeight.sendKeys(WEIGHT);
         radioButtonKg.click();
-        fieldHeight.sendKeys(reader.getProperty("Height"));
+        fieldHeight.sendKeys(HEIGHT);
         radioButtonCm.click();
-        fieldAge.sendKeys(reader.getProperty("Age"));
+        fieldAge.sendKeys(AGE);
         radioButtonGender.click();
-        fieldRunDist.sendKeys(reader.getProperty("Dist"));
+        fieldRunDist.sendKeys(DIST);
         radioButtonKm.click();
         buttonCalculateCalories.click();
         return this;
@@ -55,11 +55,11 @@ public class OtherCalculatorsPage extends BasePage{
     public OtherCalculatorsPage createCaloricCalculateWithError() {
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
-        fieldHeight.sendKeys(reader.getProperty("Height"));
+        fieldHeight.sendKeys(HEIGHT);
         radioButtonCm.click();
-        fieldAge.sendKeys(reader.getProperty("Age"));
+        fieldAge.sendKeys(AGE);
         radioButtonGender.click();
-        fieldRunDist.sendKeys(reader.getProperty("Dist"));
+        fieldRunDist.sendKeys(DIST);
         radioButtonKm.click();
         buttonCalculateCalories.click();
         return this;
@@ -70,12 +70,12 @@ public class OtherCalculatorsPage extends BasePage{
         Selenide.switchTo().frame(CalculatorFrame);
         buttonPaceCalculator.click();
         textPaceCalculator.shouldBe(visible);
-        fieldDistance.sendKeys(reader.getProperty("fieldDistance"));
+        fieldDistance.sendKeys(FIELD_DISTANCE);
         selectMeasureElement.click();
         selectKm.click();
-        hours.sendKeys(reader.getProperty("hours"));
-        minutes.sendKeys(reader.getProperty("minutes"));
-        seconds.sendKeys(reader.getProperty("seconds"));
+        hours.sendKeys(HOUR_DIST);
+        minutes.sendKeys(MINUTE_DIST);
+        seconds.sendKeys(SECOND_DIST);
         saveButtonSettings.click();
         return this;
     }
@@ -85,10 +85,10 @@ public class OtherCalculatorsPage extends BasePage{
         Selenide.switchTo().frame(CalculatorFrame);
         buttonPaceCalculator.click();
         textPaceCalculator.shouldBe(visible);
-        fieldDistance.sendKeys(reader.getProperty("fieldDistanceWithError"));
+        fieldDistance.sendKeys(FIELD_DIS_WITH_ERROR);
         selectMeasureElement.click();
         selectKm.click();
-        minutes.sendKeys(reader.getProperty("minutes"));
+        minutes.sendKeys(MINUTE_DIST);
         saveButtonSettings.click();
         return this;
     }

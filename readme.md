@@ -16,5 +16,6 @@
 10. Edit user profile settings *(FS-10)* [link](https://app.qase.io/project/FS?view=1&suite=0&case=10)
 11. Edit user profile settings with error *(FS-11)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=11)
 12. Calculating the pace of running according to the distance and time of training *(FS-12)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=12)
-13. calculating the pace of running according to the distance and time of training with error *(FS-13)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=13)
+13. Calculating the pace of running according to the distance and time of training with error *(FS-13)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=13)
+14. Dragging an existing workout to another date and back*(FS-14)*[link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=modal&case=14)
 

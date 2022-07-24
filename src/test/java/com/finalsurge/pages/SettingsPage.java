@@ -2,13 +2,13 @@ package com.finalsurge.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.finalsurge.utils.IPageConstants;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class SettingsPage extends BasePage {
+public class SettingsPage implements IPageConstants {
     public SelenideElement buttonSettings = $(byText("Settings"));
     public SelenideElement buttonEditProfile = $(By.className("dropdown-toggle"));
     public SelenideElement genderRadioButton = $(By.id("male"));
@@ -32,14 +32,14 @@ public class SettingsPage extends BasePage {
         buttonEditProfile.click();
         genderRadioButton.click();
         weight.clear();
-        weight.sendKeys(reader.getProperty("weight"));
+        weight.sendKeys(WEIGHT_SET);
         inputCity.clear();
-        inputCity.sendKeys(reader.getProperty("city"));
+        inputCity.sendKeys(CITY);
         selectCountry.click();
         selectBelarus.click();
         radioButtonKg.click();
         fieldBDay.clear();
-        fieldBDay.sendKeys(reader.getProperty("BDay"));
+        fieldBDay.sendKeys(B_DAY);
         saveButtonProfile.click();
         return this;
     }
@@ -48,7 +48,7 @@ public class SettingsPage extends BasePage {
         buttonSettings.click();
         buttonEditProfile.click();
         fieldBDay.clear();
-        fieldBDay.sendKeys(reader.getProperty("WrongSymbol"));
+        fieldBDay.sendKeys(WRONG_SYMBOL);
         saveButtonProfile.click();
         return this;
     }
