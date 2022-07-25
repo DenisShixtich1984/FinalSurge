@@ -3,17 +3,17 @@ package com.finalsurge.tests;
 import org.testng.annotations.Test;
 
 public class AddWorkoutTest extends BaseTest {
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void createSwimWorkout() {
         addWorkoutSteps.createWorkoutIssue();
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void createSwimWorkoutWithError() {
         addWorkoutSteps.createWorkoutIssueWithError();
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void createWalkWorkout() {
         addWorkoutSteps.createWorkoutWalk();
     }

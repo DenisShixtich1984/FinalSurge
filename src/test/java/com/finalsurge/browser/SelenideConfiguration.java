@@ -24,10 +24,10 @@ public class SelenideConfiguration {
     public static void setUpBasicConfigure() {
         PropertyReader reader = new PropertyReader();
         Configuration.baseUrl = reader.getProperty("urlFinalSurge");
-        Configuration.headless = false;
+        Configuration.headless = Boolean.parseBoolean(reader.getProperty("headless"));
         Configuration.browserSize = reader.getProperty("size");
-        Configuration.timeout = 10000;
-        Configuration.screenshots = false;
+        Configuration.timeout = Integer.parseInt(reader.getProperty("timeout"));
+        Configuration.screenshots = Boolean.parseBoolean(reader.getProperty("screenshots"));
     }
 }
 

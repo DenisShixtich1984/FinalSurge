@@ -16,7 +16,7 @@ public class SettingsPage implements IPageConstants, IVariables {
     public SelenideElement buttonEditProfile = $(By.className("dropdown-toggle"));
     public SelenideElement genderRadioButton = $(By.id("male"));
     public SelenideElement fieldBDay = $(By.id("BDay"));
-    public SelenideElement enterDate = $x("//table//tr[3]//td[5]");
+    public SelenideElement enterDate = $x("//table//tr[3]//td[7]");
     public SelenideElement saveButtonProfile = $(By.id("saveButtonProfile"));
     public SelenideElement weight = $(By.id("Weight"));
     public SelenideElement radioButtonKg = $(By.id("optionsRadios4"));
@@ -30,6 +30,8 @@ public class SettingsPage implements IPageConstants, IVariables {
         buttonSettings.click();
         buttonEditProfile.click();
         genderRadioButton.click();
+        fieldBDay.click();
+        enterDate.click();
         weight.clear();
         weight.sendKeys(String.valueOf(faker.number().numberBetween(70, 100)));
         inputCity.clear();
@@ -37,8 +39,6 @@ public class SettingsPage implements IPageConstants, IVariables {
         selectCountry.click();
         selectBelarus.click();
         radioButtonKg.click();
-        fieldBDay.click();
-        enterDate.click();
         saveButtonProfile.click();
         return this;
     }
