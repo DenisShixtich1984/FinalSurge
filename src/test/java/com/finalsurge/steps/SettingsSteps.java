@@ -4,13 +4,12 @@ import com.codeborne.selenide.Condition;
 import com.finalsurge.pages.LoginPage;
 import com.finalsurge.pages.SettingsPage;
 import com.finalsurge.utils.IPageConstants;
-import com.finalsurge.utils.PropertyReader;
+import com.finalsurge.utils.IVariables;
 import io.qameta.allure.Step;
 
-public class SettingsSteps implements IPageConstants {
+public class SettingsSteps implements IPageConstants, IVariables {
     LoginPage loginPage;
     SettingsPage settingsPage;
-
 
     public SettingsSteps() {
         loginPage = new LoginPage();

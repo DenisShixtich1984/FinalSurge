@@ -64,8 +64,9 @@ public class CalendarSteps {
                 .noteWorkout.shouldNotBe(visible);
         return this;
     }
+
     @Step()
-    public CalendarSteps dragAndDropWithBike () {
+    public CalendarSteps dragAndDropWithBike() {
         loginPage
                 .login();
         calendarPage

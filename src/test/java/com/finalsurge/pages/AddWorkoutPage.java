@@ -23,7 +23,7 @@ public class AddWorkoutPage implements IPageConstants {
     public SelenideElement pDuration = $(byId("PDuration"));
     public SelenideElement duration = $(byId("Duration"));
     public SelenideElement distance = $(byId("Distance"));
-    public SelenideElement metersInFact= $(byId("DistType"));
+    public SelenideElement metersInFact = $(byId("DistType"));
     public SelenideElement paceType = $(byId("PaceType"));
     public SelenideElement isRace = $(byId("IsRace"));
     public SelenideElement overallPlace = $(byId("OverallPlace"));
@@ -36,20 +36,19 @@ public class AddWorkoutPage implements IPageConstants {
     public SelenideElement errorMessage = $(byClassName("alert"));
     public SelenideElement checkNameActivity = $(byClassName("activityTypeName"));
 
-
     public AddWorkoutPage createSwimWorkout() {
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         swim.click();
         return this;
     }
+
     public AddWorkoutPage createWalkWorkout() {
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         walk.click();
         return this;
     }
-
 
     public AddWorkoutPage workoutMyList(CreateWorkout createWorkout) {
         workoutDate.clear();

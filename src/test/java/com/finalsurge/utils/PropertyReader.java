@@ -1,4 +1,5 @@
 package com.finalsurge.utils;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -13,7 +14,8 @@ public class PropertyReader {
             e.printStackTrace();
         }
     }
-    public  String getProperty (String key) {
+
+    public String getProperty(String key) {
         return properties.getProperty(key);
     }
 }

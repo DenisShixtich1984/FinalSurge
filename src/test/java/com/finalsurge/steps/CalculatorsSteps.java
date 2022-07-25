@@ -29,7 +29,7 @@ public class CalculatorsSteps implements IPageConstants {
                 .createWorkoutCalculator()
                 .messageAfterEnterDate.shouldBe(visible);
         calculatorsPage
-                .messageNumberAfterEnterDate.shouldHave(exactText(EXPECTED_MESSAGE));
+                .checkMessageCalculate.shouldHave(exactText(EXPECTED_MESSAGE));
         return this;
     }
 
@@ -42,6 +42,16 @@ public class CalculatorsSteps implements IPageConstants {
         calculatorsPage
                 .createCalculatorWithMistake()
                 .errorMassageFrame.shouldHave(textCaseSensitive(ERROR_MESSAGE_SECOND));
+        return this;
+    }
+
+    @Step()
+    public CalculatorsSteps calculateAccuratePace() {
+        loginPage
+                .login();
+        calculatorsPage
+                .createWorkoutCalculatorWithAccurateData()
+                .messageText.shouldHave(exactText(MESSAGE_ACCURATE_DATE));
         return this;
     }
 }

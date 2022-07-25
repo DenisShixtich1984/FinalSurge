@@ -20,10 +20,4 @@ public class SettingTest extends BaseTest {
     public void testEditDataWithError() {
         settingsSteps.editDataInfoWithError();
     }
-
-//    @Test
-//    public void test () {
-//        loginPage.login();
-//        settingsPage.editPhoto();
-//    }
 }

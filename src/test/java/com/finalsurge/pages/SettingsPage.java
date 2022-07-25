@@ -1,24 +1,23 @@
 package com.finalsurge.pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
+import com.finalsurge.utils.IVariables;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
-public class SettingsPage implements IPageConstants {
+public class SettingsPage implements IPageConstants, IVariables {
+    Faker faker = new Faker();
     public SelenideElement buttonSettings = $(byText("Settings"));
     public SelenideElement buttonEditProfile = $(By.className("dropdown-toggle"));
     public SelenideElement genderRadioButton = $(By.id("male"));
     public SelenideElement fieldBDay = $(By.id("BDay"));
-    public SelenideElement buttonChangeImage = $(By.id("EditProfilePicOther"));
-    public SelenideElement buttonChangeAvatar = $(By.name("profilepic"));
-    public SelenideElement buttonNextStep = $(By.id("NextStep"));
+    public SelenideElement enterDate = $x("//table//tr[3]//td[5]");
     public SelenideElement saveButtonProfile = $(By.id("saveButtonProfile"));
-    public SelenideElement iFrameUpload = $(By.className("main-wrapper"));
-    public SelenideElement cancel = $(By.id("Cancel"));
     public SelenideElement weight = $(By.id("Weight"));
     public SelenideElement radioButtonKg = $(By.id("optionsRadios4"));
     public SelenideElement selectCountry = $(By.id("Country"));
@@ -32,14 +31,14 @@ public class SettingsPage implements IPageConstants {
         buttonEditProfile.click();
         genderRadioButton.click();
         weight.clear();
-        weight.sendKeys(WEIGHT_SET);
+        weight.sendKeys(String.valueOf(faker.number().numberBetween(70, 100)));
         inputCity.clear();
         inputCity.sendKeys(CITY);
         selectCountry.click();
         selectBelarus.click();
         radioButtonKg.click();
-        fieldBDay.clear();
-        fieldBDay.sendKeys(B_DAY);
+        fieldBDay.click();
+        enterDate.click();
         saveButtonProfile.click();
         return this;
     }
@@ -48,29 +47,8 @@ public class SettingsPage implements IPageConstants {
         buttonSettings.click();
         buttonEditProfile.click();
         fieldBDay.clear();
-        fieldBDay.sendKeys(WRONG_SYMBOL);
+        fieldBDay.sendKeys(String.valueOf(faker.animal().name()));
         saveButtonProfile.click();
-        return this;
-    }
-
-    public SettingsPage editPhoto() {
-        buttonSettings.click();
-        buttonEditProfile.click();
-        buttonChangeImage.click();
-        Selenide.switchTo().frame(iFrameUpload);
-        buttonChangeAvatar.click();
-
-//
-//        buttonChangeAvatar.click();
-
-        // sendKeys(System.getProperty("user.dir")+"/src/test/resources/avatar.jpg");
-        //      buttonNextStep.click();
-//        buttonNextStep.click();
-//        saveButtonProfile.click();
-
-
-//        genderRadioButton.click();
-//        fieldBDay.sendKeys(reader.getProperty("BDay"));
         return this;
     }
 }

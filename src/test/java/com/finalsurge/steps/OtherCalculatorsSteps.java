@@ -5,6 +5,7 @@ import com.finalsurge.pages.OtherCalculatorsPage;
 import com.finalsurge.utils.IPageConstants;
 import com.finalsurge.utils.PropertyReader;
 import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Condition.textCaseSensitive;
 
 public class OtherCalculatorsSteps implements IPageConstants {
@@ -22,7 +23,7 @@ public class OtherCalculatorsSteps implements IPageConstants {
                 .login();
         otherCalculatorsPage
                 .createCaloricCalculate()
-                .tableAfterResult.shouldHave(textCaseSensitive(NUMBER_CAL_FROM_CALCULATE));
+                .messageAfterResult.shouldHave(textCaseSensitive(MESSAGE_CAL_FROM_CALCULATE));
         return this;
     }
 
@@ -42,7 +43,7 @@ public class OtherCalculatorsSteps implements IPageConstants {
                 .login();
         otherCalculatorsPage
                 .createPeaceCalculate()
-                .result.shouldHave(textCaseSensitive(SPEED_CALC));
+                .resultText.shouldHave(textCaseSensitive(MESSAGE_CALC));
         return this;
     }
 

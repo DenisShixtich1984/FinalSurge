@@ -9,9 +9,7 @@ import org.testng.annotations.Test;
  * a positive and negative scenario for counting the pace of running on time
  */
 
-
 public class OtherCalculatorsTest extends BaseTest {
-
 
     @Test(retryAnalyzer = Retry.class)
     @TmsLink("FS-8")

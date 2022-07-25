@@ -2,13 +2,16 @@ package com.finalsurge.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
+import com.finalsurge.utils.IVariables;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.textCaseSensitive;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class CalendarPage implements IPageConstants {
+public class CalendarPage implements IPageConstants, IVariables {
+    Faker faker = new Faker();
     public SelenideElement buttonCalendar = $(By.className("icsw16-day-calendar"));
     public SelenideElement titleCalendar = $(byText("Training Calendar"));
     public SelenideElement buttonQuickAdd = $(By.id("QuickAddToggle"));
@@ -30,10 +33,8 @@ public class CalendarPage implements IPageConstants {
     public SelenideElement buttonDelete = $(byXpath("(//a[text()='Delete'])[2]"));
     public SelenideElement buttonOK = $(byText("OK"));
     public SelenideElement workoutBike = $(By.id("wid-33a910da-e03b-47b7-abbd-b2394941b6e2"));
-    public SelenideElement fieldForDropDateOf14 =
-            $x("//*[@id='CalendarContent']/div/div[2]/div[2]/table/tbody/tr[3]/td[5]");
-    public SelenideElement fieldForDropDateOf13 =
-            $x("//*[@id='CalendarContent']/div/div[2]/div[2]/table/tbody/tr[3]/td[4]");
+    public SelenideElement fieldForDropDateOf14 = $x("//table//tr[3]//td[5]");
+    public SelenideElement fieldForDropDateOf13 = $x("//table//tr[3]//td[4]");
 
 
     public CalendarPage dragAndDropBike() {
@@ -59,10 +60,10 @@ public class CalendarPage implements IPageConstants {
         activityType.sendKeys(ACTIVITY_TYPE);
         workoutName.sendKeys(WORKOUT_NAME_RUN);
         workoutDescription.sendKeys(WORKOUT_DESCRIPTION);
-        distance.sendKeys(DISTANCE);
+        distance.sendKeys(String.valueOf(faker.number().numberBetween(7, 11)));
         distType.click();
         km.click();
-        duration.sendKeys(DURATION);
+        duration.sendKeys(String.valueOf(faker.number().numberBetween(110, 125)));
         saveButton.scrollIntoView(false);
         saveButton.click();
         return new CalendarPage();

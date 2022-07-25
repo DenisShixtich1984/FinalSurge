@@ -5,22 +5,23 @@ import com.finalsurge.pages.AddWorkoutPage;
 import com.finalsurge.pages.LoginPage;
 import com.finalsurge.utils.CreateWorkout;
 import com.finalsurge.utils.IPageConstants;
+import com.finalsurge.utils.IVariables;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Step;
 
-public class AddWorkoutSteps implements IPageConstants {
+public class AddWorkoutSteps implements IPageConstants, IVariables {
     LoginPage loginPage;
     AddWorkoutPage addWorkoutPage;
     Faker faker;
 
-    public AddWorkoutSteps (){
+    public AddWorkoutSteps() {
         loginPage = new LoginPage();
         addWorkoutPage = new AddWorkoutPage();
         faker = new Faker();
     }
 
     @Step()
-    public AddWorkoutSteps createWorkoutIssue () {
+    public AddWorkoutSteps createWorkoutIssue() {
         loginPage
                 .login();
         addWorkoutPage
@@ -41,8 +42,9 @@ public class AddWorkoutSteps implements IPageConstants {
                 .activityTypeName.shouldHave(Condition.textCaseSensitive(CHECK_NAME));
         return this;
     }
+
     @Step()
-    public AddWorkoutSteps createWorkoutIssueWithError () {
+    public AddWorkoutSteps createWorkoutIssueWithError() {
         loginPage
                 .login();
         addWorkoutPage
@@ -63,8 +65,9 @@ public class AddWorkoutSteps implements IPageConstants {
                 .errorMessage.shouldHave(Condition.textCaseSensitive(CHECK_ERROR_MESSAGE));
         return this;
     }
+
     @Step()
-    public AddWorkoutSteps createWorkoutWalk () {
+    public AddWorkoutSteps createWorkoutWalk() {
         loginPage
                 .login();
         addWorkoutPage

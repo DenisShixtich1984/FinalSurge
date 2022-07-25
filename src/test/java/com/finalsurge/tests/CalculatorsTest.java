@@ -10,8 +10,8 @@ public class CalculatorsTest extends BaseTest {
 
     @Test(retryAnalyzer = Retry.class)
     @TmsLink("FS-6")
-    public void calculateWorkoutIntensity() {
-        calculatorsSteps.calculateDistance();
+    public void calculateWorkoutAccuratePace() {
+        calculatorsSteps.calculateAccuratePace();
     }
 
     @Test(retryAnalyzer = Retry.class)
@@ -20,4 +20,9 @@ public class CalculatorsTest extends BaseTest {
         calculatorsSteps.calculateDistanceWithError();
     }
 
+    @Test(retryAnalyzer = Retry.class)
+    @TmsLink("___________")
+    public void calculateWorkoutIntensity() {
+        calculatorsSteps.calculateDistance();
+    }
 }

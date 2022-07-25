@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Condition.visible;
  * of a non-valid password with the verification of an error message.
  */
 
-public class LoginTest extends BaseTest implements IPageConstants{
+public class LoginTest extends BaseTest implements IPageConstants {
 
     @Test(retryAnalyzer = Retry.class)
     @TmsLink("FS-1")
@@ -28,17 +28,4 @@ public class LoginTest extends BaseTest implements IPageConstants{
         loginPage.falseLogin();
         loginPage.errorMassage.shouldBe(visible);
     }
-
-//    @Test//(retryAnalyzer = Retry.class)
-//    public void test() {
-//        loginPage.login();
-//        addWorkoutPage.createSwimWorkout();
-//        CreateWorkout workoutSwim = CreateWorkout.builder()
-//                .workoutDateOfSwim(DATE_SWIM)
-//                .workoutNameOfSwim(WRONG_SYMBOL)
-//                .workoutDescriptionOfSwim(WRONG_SYMBOL).build();
-//        addWorkoutPage.workoutMyList(workoutSwim);
-
-
-//    }
 }
