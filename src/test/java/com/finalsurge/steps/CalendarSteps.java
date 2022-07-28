@@ -74,4 +74,13 @@ public class CalendarSteps {
                 .dragAndDropBike();
         return this;
     }
+    @Step()
+    public CalendarSteps copyDay() {
+        loginPage
+                .login();
+        calendarPage
+                .buttonCalendarClick()
+                .runMyHills();
+        return this;
+    }
 }

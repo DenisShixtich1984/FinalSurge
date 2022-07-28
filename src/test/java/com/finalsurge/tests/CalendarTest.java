@@ -16,16 +16,15 @@ public class CalendarTest extends BaseTest {
         calendarSteps.createNewWorkOut();
     }
 
+    @Test (dependsOnMethods = "createWorkOut", retryAnalyzer = Retry.class)
+    @TmsLink("FS-5")
+    public void deleteNewWorkout() {
+        calendarSteps.deleteNote();}
+
     @Test(retryAnalyzer = Retry.class)
     @TmsLink("FS-4")
     public void createWorkOutWithError() {
         calendarSteps.createNewWorkOutWithError();
-    }
-
-    @Test(dependsOnMethods = "createWorkOut", retryAnalyzer = Retry.class)
-    @TmsLink("FS-5")
-    public void deleteNewWorkout() {
-        calendarSteps.deleteNote();
     }
 
     @Test(retryAnalyzer = Retry.class)
@@ -33,4 +32,11 @@ public class CalendarTest extends BaseTest {
     public void dragAndDropWithBike() {
         calendarSteps.dragAndDropWithBike();
     }
+
+//    @Test//(retryAnalyzer = Retry.class)
+//    @TmsLink("///")
+//    public void copyDayOfWorkoutAndDelete() {
+//        calendarSteps.copyDay();
+//    }
+
 }

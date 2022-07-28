@@ -6,7 +6,7 @@ import com.finalsurge.utils.IVariables;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.textCaseSensitive;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -35,7 +35,26 @@ public class CalendarPage implements IPageConstants, IVariables {
     public SelenideElement workoutBike = $(By.id("wid-33a910da-e03b-47b7-abbd-b2394941b6e2"));
     public SelenideElement fieldForDropDateOf14 = $x("//table//tr[3]//td[5]");
     public SelenideElement fieldForDropDateOf13 = $x("//table//tr[3]//td[4]");
+    public SelenideElement copyActivity = $(byXpath("(//a[text()='Copy Day'])[6]"));
+    public SelenideElement activityRunHill = $(byText("Run - Hills"));
+    public SelenideElement copyActivityRunHill = $(byXpath("(//a[text()='Copy'])[1]"));
+    public SelenideElement addOnRunHillClone = $(byXpath("(//*[@class='add-on'])[1]"));
+    public SelenideElement dateClickRunHillClone = $(byXpath("(//*[@class=' table-condensed'])[97]/tbody/tr[2]/td[6]"));
 
+    public SelenideElement icon = $x("//table//tr[1]//td[6]");
+    public SelenideElement iconPlus = $x("(//*[@class='icon-plus'])[6]");
+    public SelenideElement cloneDay = $x("//table//tr[2]//td[6]/div/div/div");
+    public SelenideElement buttonDeleteClone = $(byXpath("(//a[text()='Delete'])[2]"));
+    public SelenideElement buttonOkDelClone = $(byXpath("(//*[@class='modal-footer'])/a[1]"));
+
+    public CalendarPage runMyHills (){
+        activityRunHill.click();
+        copyActivityRunHill.click();
+        addOnRunHillClone.click();
+        dateClickRunHillClone.click();
+
+        return this;
+    }
 
     public CalendarPage dragAndDropBike() {
         actions().dragAndDrop(workoutBike, fieldForDropDateOf14).build().perform();

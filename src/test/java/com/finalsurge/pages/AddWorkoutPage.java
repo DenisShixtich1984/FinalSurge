@@ -3,15 +3,18 @@ package com.finalsurge.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
 import com.finalsurge.utils.CreateWorkout;
+import com.github.javafaker.Faker;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AddWorkoutPage implements IPageConstants {
+    Faker faker = new Faker();
     public SelenideElement buttonWorkouts = $(byText("Workouts"));
     public SelenideElement buttonAddWorkout = $(byText("Add Workout"));
     public SelenideElement swim = $x("//*[@id='blog_accordion_left']/div[3]");
     public SelenideElement walk = $x("//*[@id='blog_accordion_left']/div[5]");
+    public SelenideElement restDay = $x("//*[@id='blog_accordion_left']/div[6]");
     public SelenideElement workoutDate = $(byId("WorkoutDate"));
     public SelenideElement workoutTime = $(byId("WorkoutTime"));
     public SelenideElement timeOfWorkout = $(byText("07:00 AM"));
@@ -35,11 +38,26 @@ public class AddWorkoutPage implements IPageConstants {
     public SelenideElement activityTypeName = $(byClassName("activityTypeName"));
     public SelenideElement errorMessage = $(byClassName("alert"));
     public SelenideElement checkNameActivity = $(byClassName("activityTypeName"));
+    public SelenideElement addDate = $(byClassName("add-on"));
+    public SelenideElement addDay = $x("//table//tr[6]//td[4]");
+
+    public AddWorkoutPage createRestDay() {
+        actions().moveToElement(buttonWorkouts).build().perform();
+        buttonAddWorkout.click();
+        restDay.click();
+        addDate.click();
+        addDay.click();
+        workoutName.sendKeys(faker.name().title());
+        workoutDescription.sendKeys(faker.hitchhikersGuideToTheGalaxy().quote());
+        saveButton.click();
+        return this;
+    }
 
     public AddWorkoutPage createSwimWorkout() {
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         swim.click();
+
         return this;
     }
 

@@ -24,6 +24,8 @@ public class BaseTest {
     SettingsSteps settingsSteps;
     AddWorkoutPage addWorkoutPage;
     AddWorkoutSteps addWorkoutSteps;
+    GearAndRoutsPage gearAndRoutsPage;
+    GearAndRoutsSteps gearAndRoutsSteps;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -43,6 +45,8 @@ public class BaseTest {
         settingsSteps = new SettingsSteps();
         addWorkoutPage = new AddWorkoutPage();
         addWorkoutSteps = new AddWorkoutSteps();
+        gearAndRoutsPage = new GearAndRoutsPage();
+        gearAndRoutsSteps = new GearAndRoutsSteps();
     }
 
     @AfterMethod(alwaysRun = true)

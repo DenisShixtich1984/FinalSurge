@@ -26,5 +26,7 @@ public interface IPageConstants {
     String CHECK_NAME = "Swim";
     String CHECK_ERROR_MESSAGE = "Please enter a valid Planned Distance.";
     String CHECK_NAME_MESSAGE = "Walk";
+    String CHECK_REST_MESSAGE = "Rest Day";
+
 
 }

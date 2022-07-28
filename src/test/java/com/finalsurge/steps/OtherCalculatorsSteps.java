@@ -3,7 +3,6 @@ package com.finalsurge.steps;
 import com.finalsurge.pages.LoginPage;
 import com.finalsurge.pages.OtherCalculatorsPage;
 import com.finalsurge.utils.IPageConstants;
-import com.finalsurge.utils.PropertyReader;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.textCaseSensitive;

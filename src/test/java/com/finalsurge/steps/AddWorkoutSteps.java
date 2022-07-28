@@ -86,7 +86,16 @@ public class AddWorkoutSteps implements IPageConstants, IVariables {
                 .build();
         addWorkoutPage.workoutMyList(workoutWalk)
                 .checkNameActivity.shouldHave(Condition.textCaseSensitive(CHECK_NAME_MESSAGE));
+        return this;
+    }
 
+    @Step()
+    public AddWorkoutSteps createMyRestDay() {
+        loginPage
+                .login();
+        addWorkoutPage
+                .createRestDay()
+                .checkNameActivity.shouldHave(Condition.textCaseSensitive(CHECK_REST_MESSAGE));
         return this;
     }
 }

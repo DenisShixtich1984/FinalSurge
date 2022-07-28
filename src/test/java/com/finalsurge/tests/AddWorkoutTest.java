@@ -17,4 +17,10 @@ public class AddWorkoutTest extends BaseTest {
     public void createWalkWorkout() {
         addWorkoutSteps.createWorkoutWalk();
     }
+
+    @Test(retryAnalyzer = Retry.class)
+    public void createRestDay() {
+        addWorkoutSteps.createMyRestDay();
+    }
+
 }

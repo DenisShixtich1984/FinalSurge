@@ -28,7 +28,6 @@ public class CalculatorsPage implements IPageConstants, IVariables {
     public SelenideElement checkMessageCalculate = $(byText("Your Workout Paces"));
     public SelenideElement messageText = $(byText("10:21 /km"));
 
-
     public CalculatorsPage createWorkoutCalculator() {
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);

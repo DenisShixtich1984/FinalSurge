@@ -15,7 +15,6 @@ public class LoginPage implements IPageConstants {
     public SelenideElement buttonLogin = $(By.className("btn"));
     public SelenideElement errorMassage = $(byText("Invalid login credentials. Please try again."));
 
-
     public void login() {
         inputEmail.sendKeys(reader.getProperty("MY_MAIL"));
         inputPassword.sendKeys(reader.getProperty("MY_PASSWORD"));
