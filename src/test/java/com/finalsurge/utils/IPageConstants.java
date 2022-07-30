@@ -7,7 +7,6 @@ public interface IPageConstants {
     String EXPECTED_MESSAGE = "Your Workout Paces";
     String ERROR_MESSAGE_SECOND = "Please enter an Integer value for Seconds.";
     String MESSAGE_ACCURATE_DATE = "10:21 /km";
-
     /**
      * OtherCalculatorsPage / OtherCalculatorsSteps
      */
@@ -27,6 +26,9 @@ public interface IPageConstants {
     String CHECK_ERROR_MESSAGE = "Please enter a valid Planned Distance.";
     String CHECK_NAME_MESSAGE = "Walk";
     String CHECK_REST_MESSAGE = "Rest Day";
-
-
+    /**
+     *  GearAndRoutsSteps
+     */
+    String ERROR_MESSAGE_FAKE_DATE = "Please enter a valid Date Purchased.";
+    String ERROR_MESSAGE_EMPTY_NAME = "This field is required.";
 }

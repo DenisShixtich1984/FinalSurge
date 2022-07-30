@@ -3,15 +3,14 @@ package com.finalsurge.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
 import com.finalsurge.utils.IVariables;
-import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-
-public class SettingsPage implements IPageConstants, IVariables {
-    Faker faker = new Faker();
+@Log4j2
+public class SettingsPage extends BasePage implements IPageConstants, IVariables {
     public SelenideElement buttonSettings = $(byText("Settings"));
     public SelenideElement buttonEditProfile = $(By.className("dropdown-toggle"));
     public SelenideElement genderRadioButton = $(By.id("male"));
@@ -27,6 +26,7 @@ public class SettingsPage implements IPageConstants, IVariables {
     public SelenideElement errorMessageWrongSymbol = $(By.className("alert"));
 
     public SettingsPage editData() {
+        log.info("SettingsPage,editData");
         buttonSettings.click();
         buttonEditProfile.click();
         genderRadioButton.click();
@@ -44,6 +44,7 @@ public class SettingsPage implements IPageConstants, IVariables {
     }
 
     public SettingsPage editDataWithError() {
+        log.info("SettingsPage,editDataWithError");
         buttonSettings.click();
         buttonEditProfile.click();
         fieldBDay.clear();

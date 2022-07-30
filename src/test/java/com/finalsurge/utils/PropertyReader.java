@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertyReader {
-    private Properties properties;
+    private static Properties properties;
 
     public PropertyReader() {
         properties = new Properties();
@@ -15,7 +15,7 @@ public class PropertyReader {
         }
     }
 
-    public String getProperty(String key) {
+    public static String getProperty(String key) {
         return properties.getProperty(key);
     }
 }

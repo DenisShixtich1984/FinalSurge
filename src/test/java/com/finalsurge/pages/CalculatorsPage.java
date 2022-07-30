@@ -4,15 +4,14 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
 import com.finalsurge.utils.IVariables;
-import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-
-public class CalculatorsPage implements IPageConstants, IVariables {
-    Faker faker = new Faker();
+@Log4j2
+public class CalculatorsPage extends BasePage implements IPageConstants, IVariables {
     public SelenideElement buttonCalculatorsWorkout = $(By.className("icsw16-stop-watch"));
     public SelenideElement iFrame = $(By.id("IntensityCalciFrame"));
     public SelenideElement buttonIntensity = $(byText("Intensity"));
@@ -29,6 +28,7 @@ public class CalculatorsPage implements IPageConstants, IVariables {
     public SelenideElement messageText = $(byText("10:21 /km"));
 
     public CalculatorsPage createWorkoutCalculator() {
+        log.info("CalculatorsPage,createWorkoutCalculator");
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);
         buttonIntensity.shouldBe(visible);
@@ -41,6 +41,7 @@ public class CalculatorsPage implements IPageConstants, IVariables {
     }
 
     public CalculatorsPage createCalculatorWithMistake() {
+        log.info("CalculatorsPage,createCalculatorWithMistake");
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);
         buttonIntensity.shouldBe(visible);
@@ -52,6 +53,7 @@ public class CalculatorsPage implements IPageConstants, IVariables {
     }
 
     public CalculatorsPage createWorkoutCalculatorWithAccurateData() {
+        log.info("CalculatorsPage,createWorkoutCalculatorWithAccurateData");
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);
         buttonIntensity.shouldBe(visible);

@@ -1,5 +1,6 @@
 package com.finalsurge.steps;
 
+import static com.codeborne.selenide.Condition.textCaseSensitive;
 import static com.codeborne.selenide.Condition.visible;
 
 import io.qameta.allure.Step;
@@ -80,7 +81,18 @@ public class CalendarSteps {
                 .login();
         calendarPage
                 .buttonCalendarClick()
-                .runMyHills();
+                .copyWorkoutDay()
+                .runHillClone.shouldHave(textCaseSensitive("Run - Hills"));
+        return this;
+    }
+    @Step()
+    public CalendarSteps deleteCopyDay() {
+        loginPage
+                .login();
+        calendarPage
+                .buttonCalendarClick()
+                .deleteCopyWorkoutDay()
+                .runHillClone.shouldNotBe(textCaseSensitive("Run - Hills"));
         return this;
     }
 }

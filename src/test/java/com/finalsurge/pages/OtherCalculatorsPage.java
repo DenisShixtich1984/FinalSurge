@@ -3,15 +3,15 @@ package com.finalsurge.pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
-import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+@Log4j2
+public class OtherCalculatorsPage extends BasePage implements IPageConstants {
 
-public class OtherCalculatorsPage implements IPageConstants {
-    Faker faker = new Faker();
     public SelenideElement buttonOtherCalculators = $(By.className("icsw16-calculator"));
     public SelenideElement CalculatorFrame = $(By.id("OtherCalciFrame"));
     public SelenideElement textInFrame = $(byText("Daily Caloric Needs Calculator"));
@@ -39,6 +39,7 @@ public class OtherCalculatorsPage implements IPageConstants {
     public SelenideElement errorMessage = $(By.className("alert"));
 
     public OtherCalculatorsPage createCaloricCalculate() {
+        log.info("OtherCalculatorsPage,createCaloricCalculate");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         textInFrame.shouldHave(exactText(TEXT_MESSAGE_CALCULATE));
@@ -55,6 +56,7 @@ public class OtherCalculatorsPage implements IPageConstants {
     }
 
     public OtherCalculatorsPage createCaloricCalculateWithError() {
+        log.info("OtherCalculatorsPage,createCaloricCalculateWithError");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         fieldHeight.sendKeys(String.valueOf(faker.number().numberBetween(170, 200)));
@@ -68,6 +70,7 @@ public class OtherCalculatorsPage implements IPageConstants {
     }
 
     public OtherCalculatorsPage createPeaceCalculate() {
+        log.info("OtherCalculatorsPage,createPeaceCalculate");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         buttonPaceCalculator.click();
@@ -83,6 +86,7 @@ public class OtherCalculatorsPage implements IPageConstants {
     }
 
     public OtherCalculatorsPage createPeaceCalculateWithError() {
+        log.info("OtherCalculatorsPage,createPeaceCalculateWithError");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         buttonPaceCalculator.click();

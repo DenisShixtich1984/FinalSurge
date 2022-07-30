@@ -3,13 +3,12 @@ package com.finalsurge.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.finalsurge.utils.IPageConstants;
 import com.finalsurge.utils.CreateWorkout;
-import com.github.javafaker.Faker;
+import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-
-public class AddWorkoutPage implements IPageConstants {
-    Faker faker = new Faker();
+@Log4j2
+public class AddWorkoutPage extends BasePage implements IPageConstants {
     public SelenideElement buttonWorkouts = $(byText("Workouts"));
     public SelenideElement buttonAddWorkout = $(byText("Add Workout"));
     public SelenideElement swim = $x("//*[@id='blog_accordion_left']/div[3]");
@@ -42,6 +41,7 @@ public class AddWorkoutPage implements IPageConstants {
     public SelenideElement addDay = $x("//table//tr[6]//td[4]");
 
     public AddWorkoutPage createRestDay() {
+        log.info("AddWorkoutPage,createRestDay");
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         restDay.click();
@@ -54,6 +54,7 @@ public class AddWorkoutPage implements IPageConstants {
     }
 
     public AddWorkoutPage createSwimWorkout() {
+        log.info("AddWorkoutPage,createSwimWorkout");
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         swim.click();
@@ -62,6 +63,7 @@ public class AddWorkoutPage implements IPageConstants {
     }
 
     public AddWorkoutPage createWalkWorkout() {
+        log.info("AddWorkoutPage,createWalkWorkout");
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         walk.click();
@@ -69,6 +71,7 @@ public class AddWorkoutPage implements IPageConstants {
     }
 
     public AddWorkoutPage workoutMyList(CreateWorkout createWorkout) {
+        log.info("AddWorkoutPage,workoutMyList");
         workoutDate.clear();
         workoutDate.sendKeys(createWorkout.getWorkoutDateOfActivity());
         workoutTime.click();

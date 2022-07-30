@@ -7,7 +7,25 @@ public class GearAndRoutsTest extends BaseTest{
 
     @Test//(retryAnalyzer = Retry.class)
     @TmsLink("")
-    public void testTest () {
+    public void testAddBike () {
+        gearAndRoutsSteps.addBike();
+    }
+
+    @Test//(retryAnalyzer = Retry.class)
+    @TmsLink("")
+    public void testAddBikeWithError () {
+        gearAndRoutsSteps.addBikeWithMistake();
+    }
+
+    @Test//(retryAnalyzer = Retry.class)
+    @TmsLink("")
+    public void testAddShoes () {
         gearAndRoutsSteps.addShoes();
+    }
+
+    @Test//(retryAnalyzer = Retry.class)
+    @TmsLink("")
+    public void testAddShoesWithError () {
+        gearAndRoutsSteps.addShoesWithMistake();
     }
 }

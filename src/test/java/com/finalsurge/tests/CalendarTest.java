@@ -33,10 +33,15 @@ public class CalendarTest extends BaseTest {
         calendarSteps.dragAndDropWithBike();
     }
 
-//    @Test//(retryAnalyzer = Retry.class)
-//    @TmsLink("///")
-//    public void copyDayOfWorkoutAndDelete() {
-//        calendarSteps.copyDay();
-//    }
+    @Test(retryAnalyzer = Retry.class, priority = 1)
+    @TmsLink("///")
+    public void copyDayOfWorkout() {
+        calendarSteps.copyDay();
+    }
 
+    @Test (retryAnalyzer = Retry.class, priority = 2)
+    @TmsLink("///")
+    public void deleteDayOfWorkout() {
+        calendarSteps.deleteCopyDay();
+    }
 }
