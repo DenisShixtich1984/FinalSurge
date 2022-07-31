@@ -5,17 +5,19 @@ import java.util.Properties;
 
 public class PropertyReader {
     private static Properties properties;
-
-    public PropertyReader() {
-        properties = new Properties();
+    private static void readProperties(){
+        properties=new Properties();
         try {
-            properties.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
-        } catch (IOException e) {
+            properties.load(PropertyReader.class.getClassLoader().
+                    getResourceAsStream("config.properties"));
+        }catch (IOException e){
             e.printStackTrace();
         }
     }
-
-    public static String getProperty(String key) {
+    public static String getProperty(String key){
+        if (properties==null){
+            readProperties();
+        }
         return properties.getProperty(key);
     }
 }

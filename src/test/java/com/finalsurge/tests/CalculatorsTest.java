@@ -21,7 +21,7 @@ public class CalculatorsTest extends BaseTest {
     }
 
     @Test(retryAnalyzer = Retry.class)
-    @TmsLink("___________")
+    @TmsLink("FS-17")
     public void calculateWorkoutIntensity() {
         calculatorsSteps.calculateDistance();
     }

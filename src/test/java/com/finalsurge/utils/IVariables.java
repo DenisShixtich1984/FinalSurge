@@ -25,11 +25,9 @@ public interface IVariables {
      */
     String DATE_SWIM = "07/26/2022";
     String DATE_WALK = "07/27/2022";
-    String REST_DATE = "07/28/2022";
     String WORK0UT_NAME_SWIM = "My long swim";
     String WORK0UT_DESCRIPTION_SWIM = "200-meter breaststroke swim along the Adriatic coast";
     String PLAN_DIST_SWIM = "200";
-    String PLAN_DIST_SWIM_ERROR = "qwerty";
     String PLAN_TIME_SWIM = "00:15:00";
     String FACT_TIME_SWIM = "00:10:10";
     String FACT_DIST_SWIM = "200";

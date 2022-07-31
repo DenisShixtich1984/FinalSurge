@@ -10,16 +10,17 @@ import org.testng.annotations.Test;
 
 public class CalendarTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test(priority = 3, retryAnalyzer = Retry.class)
     @TmsLink("FS-3")
     public void createWorkOut() {
         calendarSteps.createNewWorkOut();
     }
 
-    @Test (dependsOnMethods = "createWorkOut", retryAnalyzer = Retry.class)
+    @Test(priority = 4, retryAnalyzer = Retry.class)
     @TmsLink("FS-5")
     public void deleteNewWorkout() {
-        calendarSteps.deleteNote();}
+        calendarSteps.deleteNote();
+    }
 
     @Test(retryAnalyzer = Retry.class)
     @TmsLink("FS-4")
@@ -34,13 +35,13 @@ public class CalendarTest extends BaseTest {
     }
 
     @Test(retryAnalyzer = Retry.class, priority = 1)
-    @TmsLink("///")
+    @TmsLink("FS-15")
     public void copyDayOfWorkout() {
         calendarSteps.copyDay();
     }
 
-    @Test (retryAnalyzer = Retry.class, priority = 2)
-    @TmsLink("///")
+    @Test(retryAnalyzer = Retry.class, priority = 2)
+    @TmsLink("FS-16")
     public void deleteDayOfWorkout() {
         calendarSteps.deleteCopyDay();
     }

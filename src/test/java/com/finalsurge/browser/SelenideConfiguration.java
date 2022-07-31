@@ -22,7 +22,6 @@ public class SelenideConfiguration {
     }
 
     public static void setUpBasicConfigure() {
-        PropertyReader reader = new PropertyReader();
         Configuration.baseUrl = PropertyReader.getProperty("urlFinalSurge");
         Configuration.headless = Boolean.parseBoolean(PropertyReader.getProperty("headless"));
         Configuration.browserSize = PropertyReader.getProperty("size");

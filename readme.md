@@ -18,4 +18,7 @@
 12. Calculating the pace of running according to the distance and time of training *(FS-12)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=12)
 13. Calculating the pace of running according to the distance and time of training with error *(FS-13)* [link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=side&case=13)
 14. Dragging an existing workout to another date and back*(FS-14)*[link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=modal&case=14)
+15. Copying a workout for another day*(FS-15)*[link](https://app.qase.io/project/FS?view=1&suite=0&case=15&previewMode=modal)
+16. Deleting a copied workout from the 'copyDayOfWorkout' test *(FS-16)*[link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=modal&case=16)
+17. Introduction of random data into the 'сalculator' Workout Intensity *(FS-17)*[link](https://app.qase.io/project/FS?view=1&suite=0&previewMode=modal&case=17)
 

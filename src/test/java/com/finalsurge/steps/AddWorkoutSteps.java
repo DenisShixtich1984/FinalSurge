@@ -53,7 +53,7 @@ public class AddWorkoutSteps implements IPageConstants, IVariables {
                 .workoutDateOfActivity(DATE_SWIM)
                 .workoutNameOfActivity(WORK0UT_NAME_SWIM)
                 .workoutDescriptionOfActivity(WORK0UT_DESCRIPTION_SWIM)
-                .workoutDistance(PLAN_DIST_SWIM_ERROR)
+                .workoutDistance(faker.name().firstName())
                 .workoutTimeOfActivity(PLAN_TIME_SWIM)
                 .workoutFactTimeOfActivity(FACT_TIME_SWIM)
                 .workoutFactDistanceOfActivity(FACT_DIST_SWIM)
