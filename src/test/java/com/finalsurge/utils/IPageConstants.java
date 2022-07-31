@@ -4,6 +4,11 @@ public interface IPageConstants {
     /**
      * CalculatorSteps
      */
+    String EXPECTED_MESSAGE_RUN_HILL ="Run - Hills";
+
+    /**
+     * CalculatorSteps
+     */
     String EXPECTED_MESSAGE = "Your Workout Paces";
     String ERROR_MESSAGE_SECOND = "Please enter an Integer value for Seconds.";
     String MESSAGE_ACCURATE_DATE = "10:21 /km";

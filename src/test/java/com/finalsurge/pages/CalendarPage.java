@@ -35,8 +35,6 @@ public class CalendarPage extends BasePage implements IPageConstants, IVariables
     public SelenideElement workoutBikeComeback = $x("(//*[@class='fc-event-inner fc-event-skin' and @style])[2]");
     public SelenideElement fieldForDropDateOf14 = $x("//table//tr[3]//td[5]");
     public SelenideElement fieldForDropDateOf13 = $x("//table//tr[3]//td[4]");
-
-
     public SelenideElement dayForCopy = $x("//*[@id='CalendarContent']/descendant::td[36]");
     public SelenideElement cloneDay = $x("//*[@id='CalendarContent']/descendant::a[110]");
     public SelenideElement addDateCopy = $(byXpath("//div[@class='datepicker dropdown-menu' and contains(@style,'block')]/div[1]/table/tbody/tr[2]/td[7]"));
@@ -62,8 +60,6 @@ public class CalendarPage extends BasePage implements IPageConstants, IVariables
 
         return this;
     }
-
-
 
     public CalendarPage dragAndDropBike() {
         log.info("CalendarPage,dragAndDropBike");
