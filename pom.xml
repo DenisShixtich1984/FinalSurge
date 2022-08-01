@@ -11,6 +11,7 @@
     <properties>
         <aspect.version>1.9.6</aspect.version>
         <jackson.version>2.12.3</jackson.version>
+        <suiteXmlFile>src/test/resources/All.xml</suiteXmlFile>
     </properties>
     <build>
         <plugins>
@@ -30,6 +31,9 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar -Xmx256m
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>

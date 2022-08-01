@@ -4,11 +4,11 @@ public interface IVariables {
     /**
      * CalendarPage
      */
-    String DATE_FOR_ADD = "07/08/2022";
+    String DATE_FOR_ADD = "08/08/2022";
     String ACTIVITY_TYPE = "Run";
     String WORKOUT_NAME_RUN = "long run";
     String WORKOUT_DESCRIPTION = "preparation for marathon running at a distance of more than 10 km";
-    String BIKE ="Bike";
+    String BIKE ="Bike - Recovery Ride";
     /**
      * CalculatorPage
      */

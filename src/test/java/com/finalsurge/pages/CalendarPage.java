@@ -29,17 +29,16 @@ public class CalendarPage extends BasePage implements IPageConstants, IVariables
     public SelenideElement checkAddRun = $(byText("Run: long run"));
     public SelenideElement errorMassage = $x("//*[@id='workout-add']/div[1]");
     public SelenideElement noteWorkout = $(byText("Run: long run"));
-    public SelenideElement buttonDelete = $(byXpath("(//a[text()='Delete'])[2]"));
+    public SelenideElement buttonDelete = $(byXpath("//*[@id='CalendarContent']/descendant::div[85]//li[8]/a"));
     public SelenideElement buttonOK = $(byText("OK"));
-    public SelenideElement workoutBike = $(By.id("wid-33a910da-e03b-47b7-abbd-b2394941b6e2"));
-    public SelenideElement workoutBikeComeback = $x("(//*[@class='fc-event-inner fc-event-skin' and @style])[2]");
-    public SelenideElement fieldForDropDateOf14 = $x("//table//tr[3]//td[5]");
-    public SelenideElement fieldForDropDateOf13 = $x("//table//tr[3]//td[4]");
+    public SelenideElement workoutBike = $(byText("Bike - Recovery Ride"));
+    public SelenideElement fieldForDropDateOf18 = $x("//table//tr[3]//td[5]");
+    public SelenideElement fieldForDropDateOf17 = $x("//table//tr[3]//td[4]");
     public SelenideElement dayForCopy = $x("//*[@id='CalendarContent']/descendant::td[36]");
-    public SelenideElement cloneDay = $x("//*[@id='CalendarContent']/descendant::a[110]");
+    public SelenideElement cloneDay = $x("//*[@id='CalendarContent']/descendant::td[36]//li[6]/a");
     public SelenideElement addDateCopy = $(byXpath("//div[@class='datepicker dropdown-menu' and contains(@style,'block')]/div[1]/table/tbody/tr[2]/td[7]"));
-    public SelenideElement runHillClone = $x("//*[@id='CalendarContent']/descendant::div[116]");
-    public SelenideElement deleteClone = $x("//*[@id='CalendarContent']/descendant::div[114]/ul/li[8]/a");
+    public SelenideElement runHillClone = $x("(//div[text()='Run - Hills'])[2]");
+    public SelenideElement deleteClone = $x("//*[@id='CalendarContent']/descendant::div[126]//li[8]/a");
     public SelenideElement buttonClickOk = $x("//*[@class='btn btn-primary']");
 
   //div[@class='fc-event-activity-title'])[2]
@@ -57,16 +56,15 @@ public class CalendarPage extends BasePage implements IPageConstants, IVariables
         runHillClone.click();
         deleteClone.click();
         buttonClickOk.click();
-
         return this;
     }
 
     public CalendarPage dragAndDropBike() {
         log.info("CalendarPage,dragAndDropBike");
-        actions().dragAndDrop(workoutBike, fieldForDropDateOf14).build().perform();
-        fieldForDropDateOf14.shouldHave(textCaseSensitive(BIKE));
-        actions().dragAndDrop(workoutBikeComeback, fieldForDropDateOf13).build().perform();
-        fieldForDropDateOf13.shouldHave(textCaseSensitive(BIKE));
+        actions().dragAndDrop(workoutBike, fieldForDropDateOf18).build().perform();
+        fieldForDropDateOf18.shouldHave(textCaseSensitive(BIKE));
+        actions().dragAndDrop(workoutBike, fieldForDropDateOf17).build().perform();
+        fieldForDropDateOf17.shouldHave(textCaseSensitive(BIKE));
         return this;
     }
 

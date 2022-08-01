@@ -1,14 +1,13 @@
 package com.finalsurge.steps;
 
-import static com.codeborne.selenide.Condition.textCaseSensitive;
-import static com.codeborne.selenide.Condition.visible;
-
 import com.finalsurge.utils.IPageConstants;
 import io.qameta.allure.Step;
 import com.finalsurge.pages.CalendarPage;
 import com.finalsurge.pages.DashboardPage;
 import com.finalsurge.pages.LoginPage;
 import lombok.extern.log4j.Log4j2;
+
+import static com.codeborne.selenide.Condition.*;
 
 @Log4j2
 public class CalendarSteps implements IPageConstants {
@@ -93,7 +92,7 @@ public class CalendarSteps implements IPageConstants {
         calendarPage
                 .buttonCalendarClick()
                 .deleteCopyWorkoutDay()
-                .runHillClone.shouldNotBe(textCaseSensitive(EXPECTED_MESSAGE_RUN_HILL));
+                .runHillClone.shouldNotBe(exist);
         return this;
     }
 }
