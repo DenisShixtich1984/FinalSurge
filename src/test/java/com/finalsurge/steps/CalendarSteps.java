@@ -47,7 +47,7 @@ public class CalendarSteps implements IPageConstants {
                 .titleCalendar.shouldBe(visible);
         calendarPage
                 .errorAddWorkout()
-                .errorMassage.shouldBe(visible);
+                .errorMessage.shouldBe(visible);
         return this;
     }
 
@@ -75,6 +75,7 @@ public class CalendarSteps implements IPageConstants {
                 .dragAndDropBike();
         return this;
     }
+
     @Step()
     public CalendarSteps copyDay() {
         loginPage
@@ -85,6 +86,7 @@ public class CalendarSteps implements IPageConstants {
                 .runHillClone.shouldHave(textCaseSensitive(EXPECTED_MESSAGE_RUN_HILL));
         return this;
     }
+
     @Step()
     public CalendarSteps deleteCopyDay() {
         loginPage

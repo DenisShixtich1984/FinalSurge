@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
 public class LoginPage extends BasePage {
 
@@ -16,14 +17,14 @@ public class LoginPage extends BasePage {
     public SelenideElement errorMassage = $(byText("Invalid login credentials. Please try again."));
 
     public void login() {
-        log.info("LoginPage,login");
+        log.info("login: User registered as dehok@mail.ru with the password bLC*XDnyyRaCG$3");
         inputEmail.sendKeys(PropertyReader.getProperty("MY_MAIL"));
         inputPassword.sendKeys(PropertyReader.getProperty("MY_PASSWORD"));
         buttonLogin.click();
     }
 
     public void falseLogin() {
-        log.info("LoginPage,falseLogin");
+        log.info("falseLogin: User registered as dehok@mail.ru with wrong password bLC*XDnyyRaCG$4");
         inputEmail.sendKeys(PropertyReader.getProperty("MY_MAIL"));
         inputPassword.sendKeys(faker.name().firstName());
         buttonLogin.click();

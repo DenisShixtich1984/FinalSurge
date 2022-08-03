@@ -11,20 +11,22 @@ public class GearAndRoutsSteps implements IPageConstants {
     LoginPage loginPage;
     GearAndRoutsPage gearAndRoutsPage;
 
-    public GearAndRoutsSteps (){
+    public GearAndRoutsSteps() {
         loginPage = new LoginPage();
         gearAndRoutsPage = new GearAndRoutsPage();
     }
+
     @Step
-    public GearAndRoutsSteps addBike (){
+    public GearAndRoutsSteps addBike() {
         loginPage
                 .login();
         gearAndRoutsPage
                 .createBike();
         return this;
     }
+
     @Step
-    public GearAndRoutsSteps addBikeWithMistake (){
+    public GearAndRoutsSteps addBikeWithMistake() {
         loginPage
                 .login();
         gearAndRoutsPage
@@ -32,8 +34,9 @@ public class GearAndRoutsSteps implements IPageConstants {
                 .errorMessageEmptyFieldName.shouldHave(textCaseSensitive(ERROR_MESSAGE_EMPTY_NAME));
         return this;
     }
+
     @Step
-    public GearAndRoutsSteps addShoes () {
+    public GearAndRoutsSteps addShoes() {
         loginPage
                 .login();
         gearAndRoutsPage
@@ -41,8 +44,9 @@ public class GearAndRoutsSteps implements IPageConstants {
 
         return this;
     }
+
     @Step
-    public GearAndRoutsSteps addShoesWithMistake () {
+    public GearAndRoutsSteps addShoesWithMistake() {
         loginPage
                 .login();
         gearAndRoutsPage

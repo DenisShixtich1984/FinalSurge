@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
+
 @Log4j2
 public class SettingsPage extends BasePage implements IPageConstants, IVariables {
     public SelenideElement buttonSettings = $(byText("Settings"));
@@ -26,7 +27,7 @@ public class SettingsPage extends BasePage implements IPageConstants, IVariables
     public SelenideElement errorMessageWrongSymbol = $(By.className("alert"));
 
     public SettingsPage editData() {
-        log.info("SettingsPage,editData");
+        log.info("editData: changing profile information");
         buttonSettings.click();
         buttonEditProfile.click();
         genderRadioButton.click();
@@ -44,7 +45,7 @@ public class SettingsPage extends BasePage implements IPageConstants, IVariables
     }
 
     public SettingsPage editDataWithError() {
-        log.info("SettingsPage,editDataWithError");
+        log.info("editDataWithError: error changing profile information");
         buttonSettings.click();
         buttonEditProfile.click();
         fieldBDay.clear();

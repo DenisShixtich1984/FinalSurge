@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+
 @Log4j2
 public class AddWorkoutPage extends BasePage implements IPageConstants {
     public SelenideElement buttonWorkouts = $(byText("Workouts"));
@@ -38,10 +39,10 @@ public class AddWorkoutPage extends BasePage implements IPageConstants {
     public SelenideElement errorMessage = $(byClassName("alert"));
     public SelenideElement checkNameActivity = $(byClassName("activityTypeName"));
     public SelenideElement addDate = $(byClassName("add-on"));
-    public SelenideElement addDay = $x("//table//tr[6]//td[4]");
+    public SelenideElement addDay = $x("//table//tr[5]//td[4]");
 
     public AddWorkoutPage createRestDay() {
-        log.info("AddWorkoutPage,createRestDay");
+        log.info("createRestDay: creating a day of rest");
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         restDay.click();
@@ -54,7 +55,7 @@ public class AddWorkoutPage extends BasePage implements IPageConstants {
     }
 
     public AddWorkoutPage createSwimWorkout() {
-        log.info("AddWorkoutPage,createSwimWorkout");
+        log.info("createSwimWorkout: creating a swimming workout");
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         swim.click();
@@ -63,7 +64,7 @@ public class AddWorkoutPage extends BasePage implements IPageConstants {
     }
 
     public AddWorkoutPage createWalkWorkout() {
-        log.info("AddWorkoutPage,createWalkWorkout");
+        log.info("createWalkWorkout: creating a walking workout");
         actions().moveToElement(buttonWorkouts).build().perform();
         buttonAddWorkout.click();
         walk.click();
@@ -71,7 +72,7 @@ public class AddWorkoutPage extends BasePage implements IPageConstants {
     }
 
     public AddWorkoutPage workoutMyList(CreateWorkout createWorkout) {
-        log.info("AddWorkoutPage,workoutMyList");
+        log.info("workoutMyList: build for creating workouts");
         workoutDate.clear();
         workoutDate.sendKeys(createWorkout.getWorkoutDateOfActivity());
         workoutTime.click();

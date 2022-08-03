@@ -7,17 +7,17 @@ import org.testng.ITestResult;
 @Log4j2
 public class MyListener implements ITestListener {
     public void onTestStart(ITestResult result) {
-        log.info(" -  STARTING TEST  - ");
+        log.info(" -------------------  STARTING TEST  --------------------- ");
         result.setStatus(ITestResult.STARTED);
     }
 
     public void onTestSuccess(ITestResult result) {
-        log.info("=  FINISHED TEST  =");
+        log.info("//////////  FINISHED TEST //////////");
         result.setStatus(ITestResult.SUCCESS);
     }
 
     public void onTestFailure(ITestResult result) {
-        log.error("*     FAILED TEST    *");
+        log.error("* !!!!!!!     FAILED TEST    !!!!!!!!*");
         result.setStatus(ITestResult.FAILURE);
     }
 

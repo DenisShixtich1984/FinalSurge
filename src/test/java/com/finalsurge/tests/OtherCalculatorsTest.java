@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 /**
  * in this class there are two tests ("FS-8")&("FS-9") with a positive and negative scenario
  * for counting calories spent over a certain time. And there are two tests ("FS-12") &("FS-13") with
- * a positive and negative scenario for counting the pace of running on time
+ * a positive and negative scenario for counting the pace of running on time.
  */
 
 public class OtherCalculatorsTest extends BaseTest {

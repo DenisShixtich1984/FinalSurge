@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+
 @Log4j2
 public class CalculatorsPage extends BasePage implements IPageConstants, IVariables {
     public SelenideElement buttonCalculatorsWorkout = $(By.className("icsw16-stop-watch"));
@@ -28,7 +29,7 @@ public class CalculatorsPage extends BasePage implements IPageConstants, IVariab
     public SelenideElement messageText = $(byText("10:21 /km"));
 
     public CalculatorsPage createWorkoutCalculator() {
-        log.info("CalculatorsPage,createWorkoutCalculator");
+        log.info("createWorkoutCalculator: calculator of training intensity with any variations distance and time");
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);
         buttonIntensity.shouldBe(visible);
@@ -41,7 +42,7 @@ public class CalculatorsPage extends BasePage implements IPageConstants, IVariab
     }
 
     public CalculatorsPage createCalculatorWithMistake() {
-        log.info("CalculatorsPage,createCalculatorWithMistake");
+        log.info("createCalculatorWithMistake: creating a calculator with an error: empty seconds field");
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);
         buttonIntensity.shouldBe(visible);
@@ -53,7 +54,8 @@ public class CalculatorsPage extends BasePage implements IPageConstants, IVariab
     }
 
     public CalculatorsPage createWorkoutCalculatorWithAccurateData() {
-        log.info("CalculatorsPage,createWorkoutCalculatorWithAccurateData");
+        log.info("createWorkoutCalculatorWithAccurateData: workout intensity calculator with" +
+                " hour interval = '0', minute interval = '45' and seconds interval = '15'");
         buttonCalculatorsWorkout.click();
         Selenide.switchTo().frame(iFrame);
         buttonIntensity.shouldBe(visible);

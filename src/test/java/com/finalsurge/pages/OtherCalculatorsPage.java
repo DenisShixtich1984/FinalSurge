@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+
 @Log4j2
 public class OtherCalculatorsPage extends BasePage implements IPageConstants {
 
@@ -39,7 +40,7 @@ public class OtherCalculatorsPage extends BasePage implements IPageConstants {
     public SelenideElement errorMessage = $(By.className("alert"));
 
     public OtherCalculatorsPage createCaloricCalculate() {
-        log.info("OtherCalculatorsPage,createCaloricCalculate");
+        log.info("createCaloricCalculate: workout calorie expenditure calculator with faker data");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         textInFrame.shouldHave(exactText(TEXT_MESSAGE_CALCULATE));
@@ -56,7 +57,7 @@ public class OtherCalculatorsPage extends BasePage implements IPageConstants {
     }
 
     public OtherCalculatorsPage createCaloricCalculateWithError() {
-        log.info("OtherCalculatorsPage,createCaloricCalculateWithError");
+        log.info("createCaloricCalculateWithError: weight error in the calorie calculator during exercise");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         fieldHeight.sendKeys(String.valueOf(faker.number().numberBetween(170, 200)));
@@ -70,7 +71,7 @@ public class OtherCalculatorsPage extends BasePage implements IPageConstants {
     }
 
     public OtherCalculatorsPage createPeaceCalculate() {
-        log.info("OtherCalculatorsPage,createPeaceCalculate");
+        log.info("createPeaceCalculate: calculator of running pace during training with faker data");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         buttonPaceCalculator.click();
@@ -86,7 +87,7 @@ public class OtherCalculatorsPage extends BasePage implements IPageConstants {
     }
 
     public OtherCalculatorsPage createPeaceCalculateWithError() {
-        log.info("OtherCalculatorsPage,createPeaceCalculateWithError");
+        log.info("createPeaceCalculateWithError: creating a workout with an invalid distance");
         buttonOtherCalculators.click();
         Selenide.switchTo().frame(CalculatorFrame);
         buttonPaceCalculator.click();

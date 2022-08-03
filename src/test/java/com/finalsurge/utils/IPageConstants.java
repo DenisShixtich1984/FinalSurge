@@ -5,7 +5,6 @@ public interface IPageConstants {
      * CalculatorSteps
      */
     String EXPECTED_MESSAGE_RUN_HILL ="Run - Hills";
-
     /**
      * CalculatorSteps
      */

@@ -4,7 +4,8 @@ import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 
 /**
- * in this class there are two tests with a positive and negative scenario for counting your workout peace
+ * in this class there are two tests ("FS-6") and ("FS-7") with a positive and negative scenario for counting workout peace using a faker,
+ * and а test using accurate data to verify the result obtained ("FS-17")
  */
 public class CalculatorsTest extends BaseTest {
 

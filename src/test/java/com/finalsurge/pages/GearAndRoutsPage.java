@@ -2,10 +2,10 @@ package com.finalsurge.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+
 @Log4j2
 public class GearAndRoutsPage extends BasePage {
     public SelenideElement buttonGear = $(byText("Gear & Routes"));
@@ -16,7 +16,6 @@ public class GearAndRoutsPage extends BasePage {
     public SelenideElement shoeShoeSize = $(byId("ShoeSize"));
     public SelenideElement shoeDistAlert = $(byId("DistAlert"));
     public SelenideElement shoeDistAlertType = $(byId("DistAlertType"));
-
     public SelenideElement fieldStartDist = $(byId("StartDist"));
     public SelenideElement distType = $(byId("DistType"));
     public SelenideElement datePurchased = $x("(//*[@class=' table-condensed'])/tbody/tr[2]/td[6]");
@@ -27,8 +26,8 @@ public class GearAndRoutsPage extends BasePage {
     public SelenideElement errorMessageFakeDate = $x("//*[@class='alert alert-error']");
     public SelenideElement errorMessageEmptyFieldName = $(byClassName("error"));
 
-    public GearAndRoutsPage createBike () {
-        log.info("GearAndRoutsPage,createBike");
+    public GearAndRoutsPage createBike() {
+        log.info("createBike: creating detailed workout bike information");
         actions().moveToElement(buttonGear).build().perform();
         buttonBikes.click();
         fieldName.sendKeys(faker.name().firstName());
@@ -43,16 +42,17 @@ public class GearAndRoutsPage extends BasePage {
         saveButton.click();
         return this;
     }
-    public GearAndRoutsPage createBikeWithMistake () {
-        log.info("GearAndRoutsPage,createBikeWithMistake");
+
+    public GearAndRoutsPage createBikeWithMistake() {
+        log.info("createBikeWithMistake: creating information about a bicycle with an error: empty name");
         actions().moveToElement(buttonGear).build().perform();
         buttonBikes.click();
         saveButton.click();
         return this;
     }
 
-    public GearAndRoutsPage createShoes () {
-        log.info("GearAndRoutsPage,createShoes");
+    public GearAndRoutsPage createShoes() {
+        log.info("createShoes: creating detailed workout shoes information");
         actions().moveToElement(buttonGear).build().perform();
         buttonShoes.click();
         fieldName.sendKeys(faker.name().firstName());
@@ -70,8 +70,9 @@ public class GearAndRoutsPage extends BasePage {
         saveButton.click();
         return this;
     }
-    public GearAndRoutsPage createShoesWithMistake () {
-        log.info("GearAndRoutsPage,createShoesWithMistake");
+
+    public GearAndRoutsPage createShoesWithMistake() {
+        log.info("createShoesWithMistake: creating workout shoes information with an error: invalid date");
         actions().moveToElement(buttonGear).build().perform();
         buttonShoes.click();
         fieldName.sendKeys(faker.name().firstName());
