@@ -1,26 +1,32 @@
 package com.finalsurge.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.finalsurge.utils.PropertyReader;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
-public class LoginPage {
+@Log4j2
+public class LoginPage extends BasePage {
+
     public SelenideElement inputEmail = $(By.id("login_name"));
     public SelenideElement inputPassword = $(By.id("login_password"));
     public SelenideElement buttonLogin = $(By.className("btn"));
-    public SelenideElement errorMassage = $x("//strong[text()='Invalid login credentials. Please try again.']");
+    public SelenideElement errorMassage = $(byText("Invalid login credentials. Please try again."));
 
     public void login() {
-        inputEmail.sendKeys("dehok@mail.ru");
-        inputPassword.sendKeys("bLC*XDnyyRaCG$3");
+        log.info("login: User registered as dehok@mail.ru with the password bLC*XDnyyRaCG$3");
+        inputEmail.sendKeys(PropertyReader.getProperty("MY_MAIL"));
+        inputPassword.sendKeys(PropertyReader.getProperty("MY_PASSWORD"));
         buttonLogin.click();
     }
 
     public void falseLogin() {
-        inputEmail.sendKeys("dehok@mail.ru");
-        inputPassword.sendKeys("bLC*XDnyyRaCG$4");
+        log.info("falseLogin: User registered as dehok@mail.ru with wrong password bLC*XDnyyRaCG$4");
+        inputEmail.sendKeys(PropertyReader.getProperty("MY_MAIL"));
+        inputPassword.sendKeys(faker.name().firstName());
         buttonLogin.click();
     }
 }

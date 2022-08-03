@@ -22,12 +22,11 @@ public class SelenideConfiguration {
     }
 
     public static void setUpBasicConfigure() {
-        PropertyReader reader = new PropertyReader();
-        Configuration.baseUrl = reader.getProperty("urlFinalSurge");
-        Configuration.headless = false;
-        Configuration.browserSize = "1000x1000";
-        Configuration.timeout = 10000;
-        Configuration.screenshots = false;
+        Configuration.baseUrl = PropertyReader.getProperty("urlFinalSurge");
+        Configuration.headless = Boolean.parseBoolean(PropertyReader.getProperty("headless"));
+        Configuration.browserSize = PropertyReader.getProperty("size");
+        Configuration.timeout = Integer.parseInt(PropertyReader.getProperty("timeout"));
+        Configuration.screenshots = Boolean.parseBoolean(PropertyReader.getProperty("screenshots"));
     }
 }
 
