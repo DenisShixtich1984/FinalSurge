@@ -24,13 +24,13 @@ public class CalendarTest extends BaseTest {
         calendarSteps.deleteNote();
     }
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test(groups = "smoke", retryAnalyzer = Retry.class)
     @TmsLink("FS-4")
     public void createWorkOutWithError() {
         calendarSteps.createNewWorkOutWithError();
     }
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test(groups = "smoke", retryAnalyzer = Retry.class)
     @TmsLink("FS-14")
     public void dragAndDropWithBike() {
         calendarSteps.dragAndDropWithBike();
