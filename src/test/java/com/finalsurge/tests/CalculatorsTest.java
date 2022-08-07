@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
  */
 public class CalculatorsTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test(groups = "smoke",retryAnalyzer = Retry.class)
     @TmsLink("FS-6")
     public void calculateWorkoutAccuratePace() {
         calculatorsSteps.calculateAccuratePace();
@@ -21,7 +21,7 @@ public class CalculatorsTest extends BaseTest {
         calculatorsSteps.calculateDistanceWithError();
     }
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test(groups = "smoke", retryAnalyzer = Retry.class)
     @TmsLink("FS-17")
     public void calculateWorkoutIntensity() {
         calculatorsSteps.calculateDistance();
