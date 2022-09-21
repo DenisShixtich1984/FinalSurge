@@ -18,7 +18,7 @@ public class CalculatorsSteps implements IPageConstants {
         dashboardPage = new DashboardPage();
         calculatorsPage = new CalculatorsPage();
     }
-
+wjerjedjeje
     @Step()
     public CalculatorsSteps calculateDistance() {
         loginPage
