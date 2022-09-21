@@ -35,4 +35,7 @@ public class SettingsSteps implements IPageConstants, IVariables {
                 .errorMessageWrongSymbol.shouldHave(Condition.textCaseSensitive(ERROR_WRONG_SET));
         return this;
     }
+
+
+    qegadbwsb
 }
